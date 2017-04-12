@@ -16,8 +16,8 @@ class Handler extends ExceptionHandler
      * @var array
      */
     protected $dontReport = [
-        HttpException::class,
-        ModelNotFoundException::class,
+    HttpException::class,
+    ModelNotFoundException::class,
     ];
 
     /**
@@ -48,4 +48,22 @@ class Handler extends ExceptionHandler
 
         return parent::render($request, $e);
     }
+   /* public function render($request, Exception $e)
+    {
+        if ($e instanceof ModelNotFoundException) {
+            $e = new NotFoundHttpException($e->getMessage(), $e);
+        }
+
+        if ($e instanceof TokenMismatchException) {
+            return redirect()->back()->withInput($request->except('password'))->withErrors(['Validation Token was expired. Please try again']);
+        }
+
+    // You can add your own exception here
+    // so redirect to the home route
+        if ($e instanceof NotFoundHttpException) {
+            return redirect()->route('home');
+        }
+
+        return parent::render($request, $e);
+    }*/
 }

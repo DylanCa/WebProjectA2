@@ -12,5 +12,15 @@
 */
 
 Route::get('/', function () {
-    return view('welcome');
+     return view('welcome');
+   // return 'hello World';
+
 });
+
+Route::get('salut', function(){
+
+	return 'Salut les gens!';
+});
+
+Route::get('shop','IndexController@displayShop');
+Route::get('blog','IndexController@displayBlog');
