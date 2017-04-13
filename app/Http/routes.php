@@ -10,17 +10,30 @@
 | and give it the controller to call when that URI is requested.
 |
 */
+Route::get('profil','IndexController@displayProfil');
 
-Route::get('/', function () {
-     return view('welcome');
+Route::get('login','IndexController@displayLogin');
+
+Route::get('club','IndexController@displayClub');
+
+Route::get('event','IndexController@displayEvent');
+
+Route::get('admin','IndexController@displayAdmin');
+
+Route::get('store','IndexController@displayStore');
+
+Route::get('store/buy','IndexController@displayStoreBuy');
+
+Route::get('/','IndexController@displayHomepage');
+
+// Route::get('/', function () {
+//      return view('welcome');
    // return 'hello World';
 
-});
+//});
 
 Route::get('salut', function(){
 
 	return 'Salut les gens!';
 });
 
-Route::get('shop','IndexController@displayShop');
-Route::get('blog','IndexController@displayBlog');
