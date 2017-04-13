@@ -1,0 +1,63 @@
+- Quelles fonctionnalités attendez-vous de ce site ? ( Likes, commentaires, partages réseaux sociaux ...)
+
+> Pas d'inté réseaux sociaux, likes / dislikes / commentaires
+
+- Souhaitez-vous qu'on adapte ce site sur portable également ?
+
+> Oui, responsive
+
+// - Souhaitez-vous une interface personalisable ? ( Themes, Newsfeed classable .. )
+
+> Non
+
+- Souhaitez-vous un système de profil ? ( Photo de profil, description perso, "groupes d'étudiants" )
+
+> Oui, nom prenom age promo descr phrase choc et avatar, + "clubs", page club > Budget, somme totale, membres + droits / roles, titre, descr courte & longue, page joignable facilement, event perso créables. Accès @viacesi partie étudiante, accès @cesi pour admin
+
+> Inscriptions : saisir mail ou être connecté, mail de confirmation avec lien envoyé, on ne voit que les events auxquels on peut s'inscrire
+
+> Page d'accueil : Newsfeed
+
+> Si pas inscrit, site consultable mais aucunes interractions
+
+> Compte valide obligatoire pour le store
+
+> Pas de messagerie interne ni contact interne
+
+> Clubs peuvent être créés comme les activités
+
+> Personne soumet une activité ou un club, validé par les membres par vote sur une page spéciale, valdidé par le BDE par vote, puis event / club accessible, puis il faut un minimum inscrit avant date limite pour que l'event soit validé
+
+> Club : il y a des rôles dans un club ( hiérarchie )
+
+
+- Avez-vous un design de site qui serait sujet à vous plaire et duquel nous pourrions nous inspirer ? Pourquoi ce site vous plait ?
+
+> Non, design libre
+
+- Attendez-vous du site qu'il soit "minimaliste", c'est à dire propre, élégant, style 'métro' ? Ou au contraire extravagant, avec des coloris différents, attirant l'oeil etc ?
+
+> Non, design libre
+
+- Quelles sont les principales catégories que vous attendez sur ce site ?
+
+> Non
+
+- Quel est le plus important pour vous ? La qualité ou la vitesse ?
+
+> Les deux
+
+- Laquelle des deux chartes graphiques proposées préferez-vous ?
+
+> inc
+
+- Avez-vous quelques requêtes particulières ? Telles que des fonctionnalités ou autre auxquelles nous n'aurions pas pensé
+
+> + boutique goodies ( sweets, polo avec pseudo ou pas), stylo, balles antistress, darkcookies, système de panier avec commandes privées à valider par admin + review / notes etc ... le classique
+ 
+> Partie gestion des stocks par admin
+
+> Panier non obligatoire, "vitrine"
+
+
+--- REGARDER API MICROSOFT OUTLOOK
