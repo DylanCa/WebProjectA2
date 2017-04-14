@@ -23,7 +23,7 @@
                                     if they get too long. You can also remove the <p> entirely if you don't
                                     need a subtitle.
                                 -->
-                                <h2><a href="#">Welcome to the Homepage</a></h2>
+                                <h2><a href="#">Event 1</a></h2>
                                 <p>This is a short description</p>
                             </header>
                             <div class="info">
@@ -40,10 +40,10 @@
                                     Note: You can change the number of list items in "stats" to whatever you want.
                                 -->
                                 <ul class="stats">
-                                    <li><a href="#" class="icon fa-comment">16</a></li>
-                                    <li><a href="#" class="icon fa-heart">32</a></li>
-                                    <li><a href="#" class="icon fa-twitter">64</a></li>
-                                    <li><a href="#" class="icon fa-facebook">128</a></li>
+                                    <li><a href="#" class="icon fa-comment">0</a></li>
+                                    <li><a href="#" class="icon fa-heart">0</a></li>
+                                    <li><a href="#" class="icon fa-twitter">0</a></li>
+                                    <li><a href="#" class="icon fa-facebook">0</a></li>
                                 </ul>
                             </div>
                             <a href="#" class="image featured"><img src="images/pic01.jpg" alt="" /></a>
@@ -62,16 +62,16 @@
                         <!-- Post -->
                         <article class="box post post-excerpt">
                             <header>
-                                <h2><a href="#">Lorem ipsum dolor sit amet</a></h2>
+                                <h2><a href="#">Event 2</a></h2>
                                 <p>Feugiat interdum sed commodo ipsum consequat dolor nullam metus</p>
                             </header>
                             <div class="info">
                                 <span class="date"><span class="month">Jul<span>y</span></span> <span class="day">8</span><span class="year">, 2014</span></span>
                                 <ul class="stats">
-                                    <li><a href="#" class="icon fa-comment">16</a></li>
-                                    <li><a href="#" class="icon fa-heart">32</a></li>
-                                    <li><a href="#" class="icon fa-twitter">64</a></li>
-                                    <li><a href="#" class="icon fa-facebook">128</a></li>
+                                    <li><a href="#" class="icon fa-comment">0</a></li>
+                                    <li><a href="#" class="icon fa-heart">0</a></li>
+                                    <li><a href="#" class="icon fa-twitter">0</a></li>
+                                    <li><a href="#" class="icon fa-facebook">0</a></li>
                                 </ul>
                             </div>
                             <a href="#" class="image featured"><img src="images/pic02.jpg" alt="" /></a>
@@ -104,15 +104,25 @@
                 <div id="sidebar">
 
                     <!-- Logo -->
-                    <h1 id="logo"><a href="#">STRIPED</a></h1>
+                    <h1 id="logo"><a href="/">BDE EXIA</a></h1>
+                    
+                    <!-- Text -->
+                    <section class="box text-style1">
+                        <div class="inner">
+                            <p>
+                                Profile name :<br/>
+                                Logout
+                            </p>
 
+                        </div>
+                    </section>
                     <!-- Nav -->
                     <nav id="nav">
                         <ul>
                             <li class="current"><a href="#">Latest Post</a></li>
-                            <li><a href="#">Archives</a></li>
-                            <li><a href="#">About Me</a></li>
-                            <li><a href="#">Contact Me</a></li>
+                            <li><a href="/club">Clubs</a></li>
+                            <li><a href="/event">Event 1</a></li>
+                            <li><a href="/event">Event 2</a></li>
                         </ul>
                     </nav>
 
@@ -123,33 +133,19 @@
                         </form>
                     </section>
 
-                    <!-- Text -->
-                    <section class="box text-style1">
-                        <div class="inner">
-                            <p>
-                                <b>Routes : </b>
-                                <ul>
-                                    <li><a href="/" type="button"><b>/</b></a></li>
-                                    <li><a href="/blog" type="button"><b>/blog</b></a></li>
-                                    <li><a href="/shop" type="button"><b>/shop</b></a></li>
-
-                                </ul>
-                            </p>
-
-                        </div>
-                    </section>
+                    
 
                     <!-- Recent Posts -->
                     <section class="box recent-posts">
                         <header>
-                            <h2>Recent Posts</h2>
+                            <h2>Recent Eventss</h2>
                         </header>
                         <ul>
-                            <li><a href="#">Lorem ipsum dolor</a></li>
-                            <li><a href="#">Feugiat nisl aliquam</a></li>
-                            <li><a href="#">Sed dolore magna</a></li>
-                            <li><a href="#">Malesuada commodo</a></li>
-                            <li><a href="#">Ipsum metus nullam</a></li>
+                            <li><a href="/event/1">Event 1</a></li>
+                            <li><a href="/event/2">Event 2</a></li>
+                            <li><a href="/event/3">Event 3</a></li>
+                            <li><a href="/event/4">Event 4</a></li>
+                            <li><a href="/event/5">Event 5</a></li>
                         </ul>
                     </section>
 
@@ -229,7 +225,7 @@
 
                     <!-- Copyright -->
                     <ul id="copyright">
-                        <li>&copy; Untitled.</li><li>Design: <a href="http://html5up.net">HTML5 UP</a></li>
+                        <li>&copy; Cattelan & Montes.</li><li>Design: <a href="http://html5up.net">HTML5 UP</a></li>
                     </ul>
 
                 </div>
