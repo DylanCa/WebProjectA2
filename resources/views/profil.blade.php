@@ -1,10 +1,5 @@
+@extends('layout')
 
-<!DOCTYPE html>
-<html>
-<head>
+@section('title')
     <title>Profil</title>
-</head>
-<body>
-<h3>This is the profil</h3>
-</body>
-</html>
+@stop

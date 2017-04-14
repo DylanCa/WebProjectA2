@@ -1,5 +1,5 @@
 @extends('layout')
 
 @section('title')
-    <title>Event</title>
+    <title>Create Event</title>
 @stop

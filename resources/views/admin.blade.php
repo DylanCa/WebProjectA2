@@ -1,10 +1,5 @@
+@extends('layout')
 
-<!DOCTYPE html>
-<html>
-<head>
+@section('title')
     <title>Admin</title>
-</head>
-<body>
-<h3>This is the Admin page</h3>
-</body>
-</html>
+@stop
