@@ -8,6 +8,7 @@
     <!--[if lte IE 8]><script src="assets/js/ie/html5shiv.js"></script><![endif]-->
     <link rel="stylesheet" href="assets/css/main.css" />
     <!--[if lte IE 8]><link rel="stylesheet" href="assets/css/ie8.css" /><![endif]-->
+    <link rel="icon" href="images/tab_icon.jpg" sizes="16x16">
 </head>
 <body>
 
@@ -123,6 +124,7 @@
                             <li><a href="/club">Clubs</a></li>
                             <li><a href="/event">Event 1</a></li>
                             <li><a href="/event">Event 2</a></li>
+                            <li><a href="/store">Store</a></li>
                         </ul>
                     </nav>
 

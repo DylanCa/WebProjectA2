@@ -30,10 +30,15 @@ Route::get('/','IndexController@displayHomepage');
 //      return view('welcome');
    // return 'hello World';
 
-//});
+//}); 
 
-Route::get('salut', function(){
+Route::get('test', function(){
 
-	return 'Salut les gens!';
+	return 'The test is functional!';
 });
 
+Route::get('test/{id}', function($id){
+
+	return "The test is functional! Your id is equal to: $id";
+
+});
