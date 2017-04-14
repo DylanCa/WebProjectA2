@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use DB;
+
 class IndexController extends Controller{
 
 	public function displayHomepage(){
@@ -35,5 +37,6 @@ class IndexController extends Controller{
 	public function displayStoreBuy(){
 		return view('store_buy');
 	}
+
 
 }

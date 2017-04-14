@@ -24,6 +24,8 @@ Route::get('store','IndexController@displayStore');
 
 Route::get('store/buy','IndexController@displayStoreBuy');
 
+Route::get('dbtries','IndexController@displayDBTries');
+
 Route::get('/','IndexController@displayHomepage');
 
 // Route::get('/', function () {
@@ -32,13 +34,6 @@ Route::get('/','IndexController@displayHomepage');
 
 //}); 
 
-Route::get('test', function(){
+Route::get('user','IndexController@displayProfil');
 
-	return 'The test is functional!';
-});
-
-Route::get('test/{id}', function($id){
-
-	return "The test is functional! Your id is equal to: $id";
-
-});
+Route::get('user/{id}','UserController@show');
