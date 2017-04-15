@@ -6,7 +6,7 @@
 
 @section('body') 
 
-    @include('sidebar') 
+
 
 
     <!-- Content -->
@@ -97,5 +97,5 @@
                     </div>
                 </div>
 
-
+    @include('sidebar') 
 @stop
