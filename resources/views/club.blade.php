@@ -2,6 +2,7 @@
 
 @section('title')
 <title>Club</title>
+    <link rel="stylesheet" href="assets/css/main.css" />
 @stop
 
 @section('body') 
