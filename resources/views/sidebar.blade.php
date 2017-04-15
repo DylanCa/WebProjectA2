@@ -6,8 +6,8 @@
         <section class="box text-style1">
             <div class="inner">
                 <p>
-                    Profile name :
-                    <br/> <a href='#'>Logout</a>
+                    <a href='profil'>{{ App\User::where('id', \Cookie::get('id') )->first()->name }} {{ App\User::where('id', \Cookie::get('id') )->first()->surname}}</a>
+                    <br/> <a href='logout'>Logout</a>
                 </p>
             </div>
         </section>
@@ -24,7 +24,7 @@
         <!-- Recent Posts -->
         <section class="box recent-posts">
             <header>
-                <h2>Recent Eventss</h2>
+                <h2>Recent Events</h2>
             </header>
             <ul>
                 <li><a href="/event/1">Event 1</a></li>

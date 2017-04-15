@@ -14,6 +14,14 @@ Route::get('profil','IndexController@displayProfil');
 
 Route::get('login','IndexController@displayLogin');
 
+Route::get('logout','IndexController@logout');
+
+Route::get('register','IndexController@displayCreateAcc');
+
+Route::get('create', function(){
+	return redirect()->to('register');
+});
+
 Route::get('club','IndexController@displayClub');
 
 Route::get('event','IndexController@displayEvent');
@@ -24,16 +32,20 @@ Route::get('store','IndexController@displayStore');
 
 Route::get('store/buy','IndexController@displayStoreBuy');
 
-Route::get('dbtries','IndexController@displayDBTries');
-
 Route::get('/','IndexController@displayHomepage');
-
-// Route::get('/', function () {
-//      return view('welcome');
-   // return 'hello World';
-
-//}); 
 
 Route::get('user','IndexController@displayProfil');
 
 Route::get('user/{id}','UserController@show');
+
+Route::get('dbtries', 'IndexController@displayDBTries');
+
+/*
+|-----------|
+| POST part |
+|-----------|
+*/
+
+Route::post('login','UserController@check');
+
+Route::post('register','UserController@store');

@@ -18,6 +18,15 @@ class IndexController extends Controller{
 		return view('login');
 	}
 
+	public function logout(){
+		\Cookie::queue(\Cookie::forget('user'));
+		return redirect()->to('login');
+	}
+
+	public function displayCreateAcc(){
+		return view('newaccount');
+	}
+
 	public function displayClub(){
 		return view('club');
 	}
@@ -36,6 +45,10 @@ class IndexController extends Controller{
 
 	public function displayStoreBuy(){
 		return view('store_buy');
+	}
+
+	public function displayDBTries(){
+		return view('dbtries');
 	}
 
 

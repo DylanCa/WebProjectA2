@@ -1,9 +1,4 @@
-@extends('layout')
 
-@section('title')
-    <title>Dbtries</title>
-@stop
-
-@section('body')
-        <h1>{{ $user->email }}</h1> 
-@stop
+        @foreach( $users = App\User::get() as $user)
+        	<h1><a href='\user\{{$user->id}}'>{{ $user->name }}</h1> 
+        @endforeach

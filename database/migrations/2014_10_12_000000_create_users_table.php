@@ -20,7 +20,7 @@ class CreateUsersTable extends Migration
             $table->string('password', 60);
             $table->string('avatar');
             $table->string('catchPhrase', 100);
-            $table->string('school');
+            $table->string('schoolLocation');
             $table->integer('isAdmin');
             $table->rememberToken();
             $table->timestamps();

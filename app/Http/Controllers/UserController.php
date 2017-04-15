@@ -25,9 +25,10 @@ class UserController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function create(Request $request)
     {
-        //
+        
+
     }
 
     /**
@@ -36,9 +37,27 @@ class UserController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(Request $request, User $user)
     {
-        //
+        $user = new User;
+        $user->name = $request->name;
+        $user->surname = $request->surname;
+        $user->email = $request->email;
+        $user->password = $request->password;
+        $user->save();
+
+        return redirect()->to('login');
+    }
+
+    public function check(Request $request, User $user)
+    {
+        $user = User::where('email', $request->email)->where('password', $request->password)->first();
+        if( isset($user)){
+
+            \Cookie::queue('id', (string)$user->id, 60);
+            return redirect()->to('/');
+
+        } else { return back();}
     }
 
     /**
@@ -51,7 +70,7 @@ class UserController extends Controller
     {
         $user = User::find($id);
 
-        return view('dbtries', compact('user'));
+        return view('userprofile', compact('user'));
     }
 
     /**
