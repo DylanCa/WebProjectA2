@@ -14,6 +14,14 @@ Route::get('profil','IndexController@displayProfil');
 
 Route::get('login','IndexController@displayLogin');
 
+Route::get('logout','IndexController@logout');
+
+Route::get('register','IndexController@displayCreateAcc');
+
+Route::get('create', function(){
+	return redirect()->to('register');
+});
+
 Route::get('club','IndexController@displayClub');
 
 Route::get('event','IndexController@displayEvent');
@@ -26,19 +34,18 @@ Route::get('store/buy','IndexController@displayStoreBuy');
 
 Route::get('/','IndexController@displayHomepage');
 
-// Route::get('/', function () {
-//      return view('welcome');
-   // return 'hello World';
+Route::get('user','IndexController@displayProfil');
 
-//}); 
+Route::get('user/{id}','UserController@show');
 
-Route::get('test', function(){
+Route::get('dbtries', 'IndexController@displayDBTries');
 
-	return 'The test is functional!';
-});
+/*
+|-----------|
+| POST part |
+|-----------|
+*/
 
-Route::get('test/{id}', function($id){
+Route::post('login','UserController@check');
 
-	return "The test is functional! Your id is equal to: $id";
-
-});
+Route::post('register','UserController@store');
