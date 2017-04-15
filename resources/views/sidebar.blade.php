@@ -14,8 +14,8 @@
         <!-- Nav -->
         <nav id="nav">
             <ul>
-                <li><a href="/">Homepage</a></li>
-                <li class="current"><a href="/club">Clubs</a></li>
+                <li class="current"><a href="/">Homepage</a></li>
+                <li><a href="/club">Clubs</a></li>
                 <li><a href="/event">Event 1</a></li>
                 <li><a href="/event">Event 2</a></li>
                 <li><a href="/store">Store</a></li>
