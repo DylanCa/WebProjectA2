@@ -7,7 +7,7 @@ use DB;
 class IndexController extends Controller{
 
 	public function displayHomepage(){
-		return view('homepage');
+		return view('event');
 	}
 
 	public function displayProfil(){
