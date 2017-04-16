@@ -14,7 +14,7 @@
         <button type="submit" class="btn btn-primary">Create an event</button>
     </form>
         @foreach( App\Event::where('isAvailable', 1)->orderBy('created_at', 'DESC')->get() as $event)
-            @if (App\ClubMembers::where('clubID', $event->clubID)->where('userID', \Cookie::get('id'))->count() != 0)
+            @if (App\ClubMembers::where('clubID', $event->clubID)->where('userID', \Cookie::get('id'))->count() != 0 || $event->clubID == 0)
                 <!-- Post -->
                 <article class="box post post-excerpt">
                     <header>
