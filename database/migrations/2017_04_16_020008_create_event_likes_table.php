@@ -3,7 +3,7 @@
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateClubMembersTable extends Migration
+class CreateEventLikesTable extends Migration
 {
     /**
      * Run the migrations.
@@ -12,12 +12,12 @@ class CreateClubMembersTable extends Migration
      */
     public function up()
     {
-        Schema::create('club_members', function (Blueprint $table) {
+        Schema::create('event_likes', function (Blueprint $table) {
             $table->increments('id');
-            $table->integer('member_id');
-            $table->integer('club_id');
-            $table->integer('rank');
-            $table->string('role');
+            $table->integer('userID');
+            $table->integer('eventID');
+            $table->integer('isLiked');
+            $table->integer('isDisliked');
             $table->timestamps();
         });
     }
@@ -29,6 +29,6 @@ class CreateClubMembersTable extends Migration
      */
     public function down()
     {
-        Schema::drop('club_members');
+        Schema::drop('event_likes');
     }
 }

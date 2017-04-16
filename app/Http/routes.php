@@ -22,7 +22,7 @@ Route::get('club','IndexController@displayClub');
 
 Route::get('event','IndexController@displayEvent');
 
-Route::get('event/new','EventController@displayCreate');
+Route::get('event/new/','IndexController@displayCreate');
 
 Route::get('admin','IndexController@displayAdmin');
 
@@ -33,8 +33,6 @@ Route::get('store/buy','IndexController@displayStoreBuy');
 Route::get('/','IndexController@displayHomepage');
 
 Route::get('user','IndexController@displayProfil');
-
-Route::get('user/{id}','UserController@show');
 
 Route::get('dbtries', 'IndexController@displayDBTries');
 
@@ -50,3 +48,16 @@ Route::post('register','UserController@store');
 
 Route::post('create','EventController@store');
 
+Route::post('event/new/','IndexController@displayCreate');
+
+/*
+|-----------|
+| Values part |
+|-----------|
+*/
+
+Route::post('event/{id}','EventController@reaction');
+
+Route::get('event/{id}','EventController@show');
+
+Route::get('user/{id}','UserController@show');

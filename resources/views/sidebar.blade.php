@@ -30,14 +30,12 @@
     <!-- Recent Posts -->
     <section class="box recent-posts">
         <header>
-            <h2>Upcoming Events</h2>
+            <h2>Your upcoming events</h2>
         </header>
         <ul>
-            <li><a href="/event/1">Event 1</a></li>
-            <li><a href="/event/2">Event 2</a></li>
-            <li><a href="/event/3">Event 3</a></li>
-            <li><a href="/event/4">Event 4</a></li>
-            <li><a href="/event/5">Event 5</a></li>
+        @foreach (App\EventMembers::where('userID', \Cookie::get('id'))->get() as $event)
+            <li><a href="/event/{{$event->eventID}}">{{App\Event::where('id', $event->eventID)->first()->eventDate}} - {{ App\Event::where('id', $event->eventID)->first()->name }}</a></li>
+        @endforeach
         </ul>
     </section>
     <!-- Recent Comments -->
@@ -46,9 +44,9 @@
             <h2>Recent Comments</h2>
         </header>
         <ul>
-            <li>case on <a href="#">Lorem ipsum dolor</a></li>
-            <li>molly on <a href="#">Sed dolore magna</a></li>
-            <li>case on <a href="#">Sed dolore magna</a></li>
+        @foreach (App\EventMessageBoard::all()->take(5) as $message)
+            <li><a href="/user/{{$message->userID}}">{{App\User::where('id',$message->userID)->first()->name}} {{App\User::where('id',$message->userID)->first()->surname}} </a> on <a href="/event/{{$message->eventID}}">{{App\Event::where('id', $message->eventID)->first()->name}}</a><br /><a href="/event/{{$message->eventID}}#comments">{{str_limit($message->message, 50)}}</a></li>
+        @endforeach
         </ul>
     </section>
     <!-- Copyright -->

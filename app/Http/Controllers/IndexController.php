@@ -50,6 +50,10 @@ class IndexController extends Controller{
 	public function displayDBTries(){
 		return view('dbtries');
 	}
-
+	
+	public function displayCreate(){
+        
+        return view('eventcreate');
+    }
 
 }

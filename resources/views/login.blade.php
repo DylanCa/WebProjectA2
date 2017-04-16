@@ -31,7 +31,7 @@
         </form>
         <div class="row">
             <div class="col-sm-6">
-                <form method="get" action="create" class="col-sm-3">
+                <form method="get" action="register" class="col-sm-3">
                     <button class="btn btn-default">Create an account</button>
                 </form>
             </div>

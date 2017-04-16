@@ -19,12 +19,12 @@ class CreateEventsTable extends Migration
             $table->text('short_descr');
             $table->text('long_descr');
             $table->date('eventDate');
-            $table->integer('isForClub');
+            $table->integer('clubID');
             $table->integer('upvote_admin');
             $table->integer('downvote_admin');
             $table->integer('isAvailable');
-            $table->integer('likes');
-            $table->integer('dislikes');
+            $table->integer('likes')->default(0);
+            $table->integer('dislikes')->default(0);
             $table->timestamps();
         });
     }

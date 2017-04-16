@@ -6,8 +6,7 @@
         <h3>Create an event:</h3>
         <form method="post" action="/create">
             <div class="row">
-                
-                <input type="hidden" name="_token" value="{{ csrf_token() }}"> 
+                <input type="hidden" name="_token" value="{{ csrf_token() }}">
                 <div class="col-sm-6">
                     <div class="form-group">
                         <input type="text" name="name" class="form-control" placeholder="Event Name" required>
@@ -16,6 +15,11 @@
                 <div class="col-sm-7">
                     <div class="form-group">
                         <input type="text" name="short_descr" class="form-control" placeholder="Short Description of the event" required>
+                    </div>
+                </div>
+                <div class="col-sm-7">
+                    <div class="form-group">
+                        <input type="file" name="eventImage" />
                     </div>
                 </div>
                 <div class="col-sm-8">
