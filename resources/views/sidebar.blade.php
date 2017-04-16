@@ -33,8 +33,10 @@
             <h2>Your upcoming events</h2>
         </header>
         <ul>
-        @foreach (App\EventMembers::where('userID', \Cookie::get('id'))->get() as $event)
-            <li><a href="/event/{{$event->eventID}}">{{App\Event::where('id', $event->eventID)->first()->eventDate}} - {{ App\Event::where('id', $event->eventID)->first()->name }}</a></li>
+        @foreach (App\EventMembers::where('userID', \Cookie::get('id'))->get() as $eventMember)
+            @if(App\ClubMembers::where('userID', \Cookie::get('id'))->where('clubID', (App\Event::where('id', $eventMember->eventID)->first()->clubID))->count() != 0 || App\Event::where('id', $eventMember->eventID)->first()->clubID == 0)
+                <li><a href="/event/{{$eventMember->eventID}}">{{App\Event::where('id', $eventMember->eventID)->first()->eventDate}} - {{ App\Event::where('id', $eventMember->eventID)->first()->name }}</a></li>
+            @endif
         @endforeach
         </ul>
     </section>
