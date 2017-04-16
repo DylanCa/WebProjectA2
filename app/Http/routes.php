@@ -47,9 +47,14 @@ Route::post('login','UserController@check');
 
 Route::post('register','UserController@store');
 
-Route::post('create','EventController@store');
+Route::post('create/event','EventController@store');
+
+Route::post('create/club','ClubController@store');
 
 Route::post('event/new/','IndexController@displayCreate');
+
+Route::post('club/new/','IndexController@displayClubCreate');
+
 
 /*
 |-----------|
@@ -60,5 +65,9 @@ Route::post('event/new/','IndexController@displayCreate');
 Route::post('event/{id}','EventController@reaction');
 
 Route::get('event/{id}','EventController@show');
+
+Route::post('club/{id}','ClubController@reaction');
+
+Route::get('club/{id}','ClubController@show');
 
 Route::get('user/{id}','UserController@show');

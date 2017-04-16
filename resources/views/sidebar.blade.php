@@ -38,6 +38,17 @@
         @endforeach
         </ul>
     </section>
+
+    <section class="box recent-posts">
+        <header>
+            <h2>Your clubs</h2>
+        </header>
+        <ul>
+        @foreach (App\ClubMembers::where('userID', \Cookie::get('id'))->get() as $club)
+            <li><a href="/club/{{$club->clubID}}">{{ App\Club::where('id', $club->clubID)->first()->name }}</a></li>
+        @endforeach
+        </ul>
+    </section>
     <!-- Recent Comments -->
     <section class="box recent-comments">
         <header>
