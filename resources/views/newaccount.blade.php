@@ -2,7 +2,7 @@
 <html>
 
 <head>
-    <title>Login</title>
+    <title>Register</title>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <!--[if lte IE 8]><script src="assets/js/ie/html5shiv.js"></script><![endif]-->
@@ -27,7 +27,7 @@
                     <div class="form">
                         <form method="post" action="/register">
                             <input type="hidden" name="_token" value="{{ csrf_token() }}">
-                           <!--  <h1 class="form__title">Welcome back</h1> -->
+                            <h1 class="form__title">Create your account :</h1> 
                             <label class="form__label"><span class="form__label__text">First Name</span>
                                 <input type="text" name="name" class="form__input" required>
                                 <div class="form__input-border"></div>

@@ -29,8 +29,8 @@
     </nav>
     <!-- Recent Posts -->
     <section class="box recent-posts">
-        <header>
-            <h2>Your upcoming events</h2>
+        <header >
+            <h4>Your upcoming events</h4>
         </header>
         <ul>
         @foreach (App\EventMembers::where('userID', \Cookie::get('id'))->get() as $eventMember)
@@ -43,7 +43,7 @@
 
     <section class="box recent-posts">
         <header>
-            <h2>Your clubs</h2>
+            <h4>Your clubs</h4>
         </header>
         <ul>
         @foreach (App\ClubMembers::where('userID', \Cookie::get('id'))->get() as $club)
@@ -54,7 +54,7 @@
     <!-- Recent Comments -->
     <section class="box recent-comments">
         <header>
-            <h2>Recent Comments</h2>
+            <h4>Recent Comments</h4>
         </header>
         <ul>
         @foreach (App\EventMessageBoard::all()->take(5) as $message)
