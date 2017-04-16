@@ -4,7 +4,7 @@
 <section id="form">
     <div class="container">
         <h3>Create an event:</h3>
-        <form method="post" action="/create">
+        <form method="post" action="/create/event">
             <div class="row">
                 <input type="hidden" name="_token" value="{{ csrf_token() }}">
                 <div class="col-sm-6">
@@ -36,9 +36,14 @@
                 <div class="col-sm-10">
                     <div class="form-group">
                         Is your event for a specific club ?
-                        <select name="isForClub" class="form-control">
+                        <select name="clubID" class="form-control">
                             <option value="0">No</option>
-                            <option value="id">** SHOW DIFFERENT CLUBS HERE **</option>
+                            @foreach (App\ClubMembers::where('userID', \Cookie::get('id'))->get() as $club)
+                                {{-- expr --}}
+                            
+                            <option value="{{ $club->clubID }}">{{ App\Club::where('id', $club->clubID)->first()->name }}</option>
+
+                            @endforeach
                         </select>
                     </div>
                 </div>

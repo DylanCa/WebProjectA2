@@ -49,6 +49,7 @@ class EventController extends Controller
         $event->short_descr = $request->short_descr;
         $event->long_descr = $request->long_descr;
         $event->eventDate = $request->eventDate;
+        $event->clubID = $request->clubID;
         $event->save();
 
         return redirect()->to('event');

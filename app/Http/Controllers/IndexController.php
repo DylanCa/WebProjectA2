@@ -30,6 +30,9 @@ class IndexController extends Controller{
 	public function displayClub(){
 		return view('club');
 	}
+	public function displayClubCreate(){
+		return view('clubcreate');
+	}
 
 	public function displayEvent(){
 		return view('event');

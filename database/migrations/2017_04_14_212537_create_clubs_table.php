@@ -26,6 +26,7 @@ class CreateClubsTable extends Migration
             $table->timestamps();
         });
     }
+    
 
     /**
      * Reverse the migrations.
