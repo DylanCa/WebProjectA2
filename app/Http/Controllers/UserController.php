@@ -54,7 +54,7 @@ class UserController extends Controller
         $user = User::where('email', $request->email)->where('password', $request->password)->first();
         if( isset($user)){
 
-            \Cookie::queue('id', (string)$user->id, 60);
+            \Cookie::queue('id', (string)$user->id, 3600);
             return redirect()->to('/');
 
         } else { return back();}

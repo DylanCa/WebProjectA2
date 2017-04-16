@@ -6,8 +6,8 @@
 
 @section('body') 
 
-
-
+ 
+ 
 <section id="form">
     <div class="container">
         <h3>Login:</h3>
@@ -26,24 +26,19 @@
                         <input type="password" name="password" class="form-control" required>
                     </div>
                 </div>
-                
             </div>
             <button type='submit' class="btn btn-primary col-sm-2">SUBMIT</button>
-            
-            
         </form>
         <div class="row">
-           <div class="col-sm-6">
-            
-            <form method="get" action="create" class="col-sm-3">
-                <button class="btn btn-default">Create an account</button>
-            </form>            
+            <div class="col-sm-6">
+                <form method="get" action="create" class="col-sm-3">
+                    <button class="btn btn-default">Create an account</button>
+                </form>
+            </div>
         </div>
-        
-        
     </div>
-</div> 
 </section>
+
 
 <!-- 
 <div class="container">

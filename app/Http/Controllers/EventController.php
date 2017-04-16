@@ -4,11 +4,17 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
+use App\Event;
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
 
 class EventController extends Controller
 {
+
+    public function displayCreate(){
+        return view('eventcreate');
+    }
+
     /**
      * Display a listing of the resource.
      *
@@ -35,9 +41,15 @@ class EventController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(Request $request, Event $event)
     {
-        //
+        $event = new Event;
+        $event->name = $request->name;
+        $event->eventCreator = \Cookie::get('id');
+        $event->short_descr = $request->short_descr;
+        $event->long_descr = $request->long_descr;
+        $event->eventDate = $request->eventDate;
+        $event->save();
     }
 
     /**

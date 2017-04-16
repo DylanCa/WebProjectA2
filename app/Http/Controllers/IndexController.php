@@ -19,7 +19,7 @@ class IndexController extends Controller{
 	}
 
 	public function logout(){
-		\Cookie::queue(\Cookie::forget('user'));
+		\Cookie::queue(\Cookie::forget('id'));
 		return redirect()->to('login');
 	}
 

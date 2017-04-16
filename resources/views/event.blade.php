@@ -7,6 +7,10 @@
 
 @section('body') 
 
+
+
+        @foreach( $event = App\Event::get() as $event)
+             
 <!-- Content -->
 <div id="content">
 	<div class="inner">
@@ -19,8 +23,8 @@
                     if they get too long. You can also remove the <p> entirely if you don't
                     need a subtitle.
                 -->
-                <h2><a href="#">Event 1</a></h2>
-                <p>This is a short description</p>
+                <h2><a href="#">{{ $event->name }}</a></h2>
+                <p>{{ $event->short_descr }}</p>
             </header>
             <div class="info">
                 <!--
@@ -37,20 +41,10 @@
                 <ul class="stats">
                 	<li><a href="#" class="icon fa-comment">0</a></li>
                 	<li><a href="#" class="icon fa-heart">0</a></li>
-                	<li><a href="#" class="icon fa-twitter">0</a></li>
-                	<li><a href="#" class="icon fa-facebook">0</a></li>
                 </ul>
             </div>
             <a href="#" class="image featured"><img src="images/pic01.jpg" alt="" /></a>
-            <p>
-            	<strong>Hello!</strong> You're looking at <strong>Striped</strong>, a fully responsive HTML5 site template designed by <a href="http://twitter.com/ajlkn">AJ</a>
-            	for <a href="http://html5up.net">HTML5 UP</a> It features a clean, minimalistic design, styling for all basic page elements (including blockquotes, tables and lists), a
-            	repositionable sidebar (left or right), and HTML5/CSS3 code designed for quick and easy customization (see code comments for details).
-            </p>
-            <p>
-            	Striped is released for free under the <a href="http://html5up.net/license">Creative Commons Attribution license</a> so feel free to use it for personal projects
-            	or even commercial ones &ndash; just be sure to credit <a href="http://html5up.net">HTML5 UP</a> for the design. If you like what you see here, be sure to check out
-            	<a href="http://html5up.net">HTML5 UP</a> for more cool designs or follow me on <a href="http://twitter.com/ajlkn">Twitter</a> for new releases and updates.
+            <p>{{ $event->long_descr }}
             </p>
         </article>
 
@@ -94,6 +88,8 @@
 
     </div>
 </div>
+
+@endforeach
 @include('sidebar') 
 
 @stop
