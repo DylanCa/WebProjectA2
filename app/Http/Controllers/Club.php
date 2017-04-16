@@ -4,11 +4,10 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
-use App\User;
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
 
-class UserController extends Controller
+class Club extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -25,10 +24,9 @@ class UserController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create(Request $request)
+    public function create()
     {
-        
-
+        //
     }
 
     /**
@@ -37,27 +35,9 @@ class UserController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request, User $user)
+    public function store(Request $request)
     {
-        $user = new User;
-        $user->name = $request->name;
-        $user->surname = $request->surname;
-        $user->email = $request->email;
-        $user->password = $request->password;
-        $user->save();
-
-        return redirect()->to('login');
-    }
-
-    public function check(Request $request, User $user)
-    {
-        $user = User::where('email', $request->email)->where('password', $request->password)->first();
-        if( isset($user)){
-
-            \Cookie::queue('id', (string)$user->id, 3600);
-            return redirect()->to('/');
-
-        } else { return back();}
+        //
     }
 
     /**
@@ -68,9 +48,7 @@ class UserController extends Controller
      */
     public function show($id)
     {
-        $user = User::find($id);
-
-        return view('userprofile', compact('user'));
+        //
     }
 
     /**

@@ -15,14 +15,16 @@ class CreateEventsTable extends Migration
         Schema::create('events', function (Blueprint $table) {
             $table->increments('id');
             $table->string('name');
+            $table->integer('eventCreator');
             $table->text('short_descr');
             $table->text('long_descr');
+            $table->date('eventDate');
+            $table->integer('clubID');
             $table->integer('upvote_admin');
             $table->integer('downvote_admin');
-            $table->integer('isShown');
-            $table->integer('isFromClub');
-            $table->integer('likes');
-            $table->integer('dislikes');
+            $table->integer('isAvailable');
+            $table->integer('likes')->default(0);
+            $table->integer('dislikes')->default(0);
             $table->timestamps();
         });
     }

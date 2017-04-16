@@ -19,7 +19,7 @@ class IndexController extends Controller{
 	}
 
 	public function logout(){
-		\Cookie::queue(\Cookie::forget('user'));
+		\Cookie::queue(\Cookie::forget('id'));
 		return redirect()->to('login');
 	}
 
@@ -50,6 +50,10 @@ class IndexController extends Controller{
 	public function displayDBTries(){
 		return view('dbtries');
 	}
-
+	
+	public function displayCreate(){
+        
+        return view('eventcreate');
+    }
 
 }

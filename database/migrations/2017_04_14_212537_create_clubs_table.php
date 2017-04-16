@@ -14,6 +14,15 @@ class CreateClubsTable extends Migration
     {
         Schema::create('clubs', function (Blueprint $table) {
             $table->increments('id');
+            $table->string('name');
+            $table->integer('clubCreator');
+            $table->text('short_descr');
+            $table->text('long_descr');
+            $table->decimal('budget',2);
+            $table->decimal('totalAmount',2);
+            $table->integer('upvote_admin');
+            $table->integer('downvote_admin');
+            $table->integer('isAvailable');
             $table->timestamps();
         });
     }

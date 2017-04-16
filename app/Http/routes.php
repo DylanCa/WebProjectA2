@@ -18,13 +18,11 @@ Route::get('logout','IndexController@logout');
 
 Route::get('register','IndexController@displayCreateAcc');
 
-Route::get('create', function(){
-	return redirect()->to('register');
-});
-
 Route::get('club','IndexController@displayClub');
 
 Route::get('event','IndexController@displayEvent');
+
+Route::get('event/new/','IndexController@displayCreate');
 
 Route::get('admin','IndexController@displayAdmin');
 
@@ -35,8 +33,6 @@ Route::get('store/buy','IndexController@displayStoreBuy');
 Route::get('/','IndexController@displayHomepage');
 
 Route::get('user','IndexController@displayProfil');
-
-Route::get('user/{id}','UserController@show');
 
 Route::get('dbtries', 'IndexController@displayDBTries');
 
@@ -49,3 +45,19 @@ Route::get('dbtries', 'IndexController@displayDBTries');
 Route::post('login','UserController@check');
 
 Route::post('register','UserController@store');
+
+Route::post('create','EventController@store');
+
+Route::post('event/new/','IndexController@displayCreate');
+
+/*
+|-----------|
+| Values part |
+|-----------|
+*/
+
+Route::post('event/{id}','EventController@reaction');
+
+Route::get('event/{id}','EventController@show');
+
+Route::get('user/{id}','UserController@show');
