@@ -11,6 +11,7 @@
 |
 */
 
+
 Route::get('profil','IndexController@displayProfil');
 
 Route::get('login','IndexController@displayLogin');
