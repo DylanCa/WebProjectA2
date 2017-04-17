@@ -6,7 +6,17 @@
 <div id="content">
 	<div id="profil" class="inner">
 	    <div id="img" class="col-lg-5">
-	    	<img src="{{ $user->avatar }} "  class="img-thumbnail img-responsive">
+	    	<img width="310" height="310" src="{{ $user->avatar }}"  class="img-thumbnail img-responsive">
+	    	@if($user->id == \Cookie::get('id'))
+				<form method="POST" action="\profile">
+				<input type="hidden" name="_token" value="{{ csrf_token() }}">
+				  	<div class="form-group col-lg-10 text-center">
+				    	<label for="avatar">Change your avatar<br/>( format .jpg / jpeg / .png / .gif )</label>
+				    	<input type="text" class="form-control" name="avatar" pattern=".*\.jpg$|.*\.jpeg$|.*\.png$|.*\.gif$" placeholder="https://image.jpeg">
+				    	<button type="submit" name="changeavatar" value="changeavatar" class="btn btn-primary" >Change it !</button>
+				  	</div>
+				</form>
+	    	@endif
 	    </div>
 	    <div class="form-group">
 	        <label class="col-lg-5 control-label text-center" style="border: 1px solid black; border-radius: 6px;">

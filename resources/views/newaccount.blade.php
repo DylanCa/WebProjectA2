@@ -37,7 +37,7 @@
                                 <div class="form__input-border"></div>
                             </label>
                             <label class="form__label"><span class="form__label__text" >Email ( @ viacesi.fr or @cesi.fr )</span>
-                                <input type="email" name="email" class="form__input" pattern="[A-z.]*[@]viacesi\.fr|[A-z.]*[@]cesi\.fr" required>
+                                <input type="email" name="email" class="form__input" pattern="[A-z.]*[@]viacesi\.fr$|[A-z.]*[@]cesi\.fr$" required>
                                 <div class="form__input-border"></div>
                             </label>
                             <label class="form__label"><span class="form__label__text">Password</span>

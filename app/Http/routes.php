@@ -47,6 +47,8 @@ Route::post('login','UserController@check');
 
 Route::post('register','UserController@store');
 
+Route::post('profile','UserController@changeProfile');
+
 Route::post('create/event','EventController@store');
 
 Route::post('create/club','ClubController@store');

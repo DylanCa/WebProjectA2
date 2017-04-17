@@ -31,11 +31,12 @@ class UserController extends Controller
 
     }
 
-    public function updateProfil(Request $request)
+    public function changeProfile(Request $request)
     {
         $user = User::where('id', \Cookie::get('id'))->first();
-        $user->email = $request->email;
-
+        $user->avatar = $request->avatar;
+        $user->save();
+        return back();
     }
 
     /**
