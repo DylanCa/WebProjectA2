@@ -4,7 +4,8 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Shop extends Model
+class Item extends Model
 {
-    //
+    public $table = "store";
+
 }

@@ -27,7 +27,7 @@ Route::get('event/new/','IndexController@displayCreate');
 
 Route::get('admin','IndexController@displayAdmin');
 
-Route::get('store','IndexController@displayStore');
+Route::get('store','StoreController@displayStore');
 
 Route::get('store/buy','IndexController@displayStoreBuy');
 
@@ -80,6 +80,7 @@ Route::post('club/{id}','ClubController@reaction');
 
 Route::get('club/{id}','ClubController@show');
 
+<<<<<<< HEAD
 Route::get('club/{id}/admin','ClubController@admin');
 
 Route::post('club/{id}/admin','ClubController@admin');
@@ -87,3 +88,8 @@ Route::post('club/{id}/admin','ClubController@admin');
 Route::post('club/{id}/admind','ClubController@admind');
 
 Route::get('user/{id}','UserController@show');
+=======
+Route::get('user/{id}','UserController@show');
+
+Route::get('store/{id}','StoreController@show');
+>>>>>>> store_db
