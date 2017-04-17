@@ -31,6 +31,13 @@ class UserController extends Controller
 
     }
 
+    public function updateProfil(Request $request)
+    {
+        $user = User::where('id', \Cookie::get('id'))->first();
+        $user->email = $request->email;
+
+    }
+
     /**
      * Store a newly created resource in storage.
      *
@@ -71,9 +78,13 @@ class UserController extends Controller
      */
     public function show($id)
     {
-        $user = User::find($id);
+        return view('userprofile', compact('id'));
+    }
 
-        return view('userprofile', compact('user'));
+    public function showUser()
+    {
+        $id = \Cookie::get('id');
+        return view('userprofile', compact('id'));
     }
 
     /**

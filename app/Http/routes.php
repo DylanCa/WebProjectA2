@@ -11,13 +11,13 @@
 |
 */
 
-Route::get('profil','IndexController@displayProfil');
-
 Route::get('login','IndexController@displayLogin');
 
 Route::get('logout','IndexController@logout');
 
 Route::get('register','IndexController@displayCreateAcc');
+
+Route::get('profil','UserController@showUser');
 
 Route::get('club','IndexController@displayClub');
 

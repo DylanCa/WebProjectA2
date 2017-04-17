@@ -7,7 +7,7 @@
         <div class="inner">
             @if(!empty(\Cookie::get('id')))
             <p>
-                <a href='profil'>{{ App\User::where('id', \Cookie::get('id') )->first()->name }} {{ App\User::where('id', \Cookie::get('id') )->first()->surname}}</a>
+                <a href='/profil'>{{ App\User::where('id', \Cookie::get('id') )->first()->name }} {{ App\User::where('id', \Cookie::get('id') )->first()->surname}}</a>
                 <br/> <a href='/logout'>Logout</a>
             </p>
             @else

@@ -11,10 +11,6 @@ class IndexController extends Controller{
 		return view('event');
 	}
 
-	public function displayProfil(){
-		return view('profil');
-	}
-
 	public function displayLogin(){
 		return view('login');
 	}
