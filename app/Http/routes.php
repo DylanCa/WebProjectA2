@@ -80,25 +80,16 @@ Route::post('club/{id}','ClubController@reaction');
 
 Route::get('club/{id}','ClubController@show');
 
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
-
 Route::get('user/{id}','UserController@show');
 
 Route::get('store/{id}','StoreController@show');
 
->>>>>>> 427f81ed5d6e09504a810bd3f6a22d848b74c543
+
 Route::get('club/{id}/admin','ClubController@admin');
 
 Route::post('club/{id}/admin','ClubController@admin');
 
 Route::post('club/{id}/admind','ClubController@admind');
 
-
-<<<<<<< HEAD
 Route::get('store/{id}','StoreController@show');
->>>>>>> store_db
-=======
 
->>>>>>> 427f81ed5d6e09504a810bd3f6a22d848b74c543
