@@ -7,7 +7,22 @@
         <!-- Post -->
         <article class="box post post-excerpt">
             <header>
-                <h2><a href="/club/{{ $club->id }}">{{ $club->name }}</a></h2>
+
+                <?php
+                    if(!empty(App\ClubMembers::where('userID', \Cookie::get('id'))->first())){
+                        $clubMember = App\ClubMembers::where('userID', \Cookie::get('id'))->first();
+                    } else { 
+                        $clubMember = new App\ClubMembers;
+                        $clubMember->isAdmin = 0;
+                    } 
+                ?> 
+                <h2><a href="/club/{{ $club->id }}">{{ $club->name }}</a>
+                @if($clubMember->rank == 1 || $clubMember->rank == 2)<form method="POST" action="/club/{{$club->id}}/admin">
+                    <input type="hidden" name="_token" value="{{ csrf_token() }}">
+                    <button type="submit" name="leave" class="btn btn-primary" value="leave">Admin Page</button>
+                </form>
+                @endif
+                </h2> 
                 <p>{{ $club->short_descr }}</p>
             </header>
             <div class="info">
@@ -16,17 +31,34 @@
                 </ul>
             </div>
             <div id="members" class="container">
-                <ul class="list-group"> List of the Club members
-                <br/>Admin : 
-                @foreach (App\ClubMembers::where('clubID', $club->id )->where('rank', 1)->get() as $member)
-                     <li class="list-group-item"><a href="/user/{{$member->userID}}">{{ App\User::where('id', $member->userID)->first()->name}} {{ App\User::where('id', $member->userID)->first()->surname}}</a>
-                @endforeach
-                </ul>
-                Member : 
-                <ul class="list-group">
-                @foreach (App\ClubMembers::where('clubID', $club->id )->where('rank','!=',1)->get() as $member)
-                     <li class="list-group-item"><a href="/user/{{$member->userID}}">{{ App\User::where('id', $member->userID)->first()->name}} {{ App\User::where('id', $member->userID)->first()->surname}}
-                @endforeach
+                <ul class="list-group"> List of the Club members 
+                    @foreach (App\ClubMembers::where('clubID', $club->id )->get() as $member)
+                        <form action="/club/{{$club->id}}/admind" method="post">
+                            <input type="hidden" name="_token" value="{{ csrf_token() }}">
+                            <input type="hidden" name="memberID" value="{{$member->id}}">
+                            <input type="hidden" name="clubID" value="{{ $member->clubID }}">
+                            <?php 
+                                $user = App\User::where('id', $member->userID)->first(); ?>
+                            <li class="list-group-item">
+                            @if($member->rank == 0) 
+                                Member - <a href="/user/{{ $user->id }}">{{ $user->name }} {{ $user->surname }}</a> - 
+                                @if($clubMember->rank == 1 || $clubMember->rank == 2 )
+                                    <button type="submit" name="kickEvent" class="btn btn-success" value="kickEvent">Kick this user</button>
+                                @endif 
+                                @if ($clubMember->rank == 2)
+                                    <button type="submit" name="setAdmin" class="btn btn-success" value="setAdmin">Admin this user</button>
+                                @endif 
+                            @elseif($member->rank == 1) 
+                                Admin - <a href="/user/{{ $user->id }}">{{ $user->name }} {{ $user->surname }}</a> - 
+                                @if ($clubMember->rank == 2)
+                                    <button type="submit" name="unsetAdmin" class="btn btn-danger" value="unsetAdmin">Un-admin this user</button>
+                                @endif 
+                            @elseif($member->rank == 2) 
+                                Creator - <a href="/user/{{ $user->id }}">{{ $user->name }} {{ $user->surname }}</a> 
+                            @endif 
+                            </li>
+                        </form>
+                    @endforeach
                 </ul>
             </div>
             <a href="#" class="image featured"><img src="/images/pic01.jpg" alt="" /></a>

@@ -37,7 +37,7 @@
         </header>
         <ul>
         @foreach (App\EventMembers::where('userID', \Cookie::get('id'))->get() as $eventMember)
-            @if(App\event::where('id', $eventMember->eventID)->first()->isAvailable == 1)
+            @if(App\Event::where('id', $eventMember->eventID)->first()->isAvailable == 1)
                 @if(App\ClubMembers::where('userID', \Cookie::get('id'))->where('clubID', (App\Event::where('id', $eventMember->eventID)->first()->clubID))->count() != 0 || App\Event::where('id', $eventMember->eventID)->first()->clubID == 0)
                     <li><a href="/event/{{$eventMember->eventID}}">{{App\Event::where('id', $eventMember->eventID)->first()->eventDate}} - {{ App\Event::where('id', $eventMember->eventID)->first()->name }}</a></li>
                 @endif

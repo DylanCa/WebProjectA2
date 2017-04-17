@@ -6,6 +6,10 @@ use Illuminate\Http\Request;
 
 use App\Club;
 use App\ClubMembers;
+use App\Event;
+use App\EventLikes;
+use App\EventMembers;
+use App\EventMessageBoard;
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
 
@@ -72,6 +76,14 @@ class ClubController extends Controller
         return view('singleclub', compact('club'));
     }
 
+    public function admin($id)
+    {
+        if(ClubMembers::where('userID', \Cookie::get('id'))->where('clubID', $id)->first()->rank == 1 || ClubMembers::where('userID', \Cookie::get('id'))->where('clubID', $id)->first()->rank == 2){
+            $club = Club::find($id);
+        return view('clubadmin', compact('club'));
+        } else { return back();}
+    }
+
     public function reaction(Request $request, Club $club)
     {
         if(\Input::get('join')){
@@ -96,6 +108,45 @@ class ClubController extends Controller
             return back();
         }
         
+    }
+
+    public function admind(Request $request, ClubMembers $member){
+
+        $clubMembers = ClubMembers::where('id', $request->memberID)->first();
+
+        if (\Input::get('deleteMessage')){
+            EventMessageBoard::where('id', $request->messageID)->first()->delete();
+            
+        } elseif(\Input::get('kickClub')){
+
+            $clubMembers->delete();
+            
+        } elseif(\Input::get('setAdmin')){
+            $clubMembers->rank = 1;
+            $clubMembers->save();
+
+        } elseif(\Input::get('unsetAdmin')){
+            $clubMembers->rank = 0;
+            $clubMembers->save();
+
+        } elseif(\Input::get('deleteEvent')){
+            foreach(EventMessageBoard::where('eventID', $request->event)->get() as $eventMessage){
+                $eventMessage->delete();
+            }
+
+            foreach(EventMembers::where('eventID', $request->event)->get() as $eventMembers){
+                $eventMembers->delete();
+            }
+
+            foreach(EventLikes::where('eventID', $request->event)->get() as $eventLikes){
+                $eventLikes->delete();
+            }
+            
+            Event::where('id', $request->event)->first()->delete();
+
+        }
+
+        return back();
     }
 
     /**

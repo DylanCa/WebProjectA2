@@ -10,7 +10,7 @@
 	    	@if($user->id == \Cookie::get('id'))
 				<form method="POST" action="\profile">
 				<input type="hidden" name="_token" value="{{ csrf_token() }}">
-				  	<div class="form-group col-lg-10 text-center">
+				  	<div class="form-group col-lg-10 text-center"><div></div>
 				    	<label for="avatar">Change your avatar<br/>( format .jpg / jpeg / .png / .gif )</label>
 				    	<input type="text" class="form-control" name="avatar" pattern=".*\.jpg$|.*\.jpeg$|.*\.png$|.*\.gif$" placeholder="https://image.jpeg">
 				    	<button type="submit" name="changeavatar" value="changeavatar" class="btn btn-primary" >Change it !</button>
@@ -28,9 +28,11 @@
 
     <div id="events" class="inner">
 	    <ul class="list-group col-lg-5 text-center"><label>Events {{App\User::where('id', $id)->first()->name}} is going to</label>
-	    @foreach (\App\EventMembers::where('userID', $id)->get() as $event)
-	    	@if(\App\ClubMembers::where('clubID', \App\Event::where('id', $event->eventID)->where('isAvailable', 1)->first()->clubID)->where('userID', \Cookie::get('id'))->count() == 1 || \App\Event::where('id', $event->eventID)->first()->clubID == 0 )
-	    	<li class="list-group-item"><a href="\event\{{$event->eventID}}">{{ \App\Event::where('id', $event->eventID)->where('isAvailable', 1)->first()->name }}</a></li>
+	    @foreach (\App\EventMembers::where('userID', $id)->get() as $eventMember)
+	    	@if(!empty(\App\Event::where('id', $eventMember->eventID)->where('isAvailable', 1)->first()) && \App\ClubMembers::where('clubID', \App\Event::where('id', $eventMember->eventID)->where('isAvailable', 1)->first()->clubID)->where('userID', \Cookie::get('id'))->count() == 1 || \App\Event::where('id', $eventMember->eventID)->first()->clubID == 0 )
+	    	@if(!empty(\App\Event::where('id', $eventMember->eventID)->where('isAvailable', 1)->first()))
+	    			<li class="list-group-item"><a href="\event\{{$eventMember->eventID}}">{{ \App\Event::where('id', $eventMember->eventID)->where('isAvailable', 1)->first()->name }}</a></li>
+	    		@endif
 	    	@endif
 	    @endforeach
     </div>

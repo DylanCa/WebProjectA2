@@ -9,12 +9,12 @@
 <!-- Content -->
 <div id="content">
     <div class="inner">
-    <form method='post' action='club/new/'>
+    <form method='post' action='/club/new/'>
     <input type="hidden" name="_token" value="{{ csrf_token() }}">
 
         <button type="submit" class="btn btn-primary">Create a club</button>
     </form>
-        @foreach( App\Club::where('isAvailable', 0)->orderBy('created_at', 'DESC')->get() as $club)
+        @foreach( App\Club::where('isAvailable', 1)->orderBy('created_at', 'DESC')->get() as $club)
         <!-- Post -->
         <article class="box post post-excerpt">
             <header>

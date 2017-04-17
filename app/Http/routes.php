@@ -72,10 +72,24 @@ Route::post('event/{id}','EventController@reaction');
 
 Route::get('event/{id}','EventController@show');
 
+Route::get('event/{id}/admin','EventController@admin');
+
+Route::post('event/{id}/admin','EventController@admin');
+
 Route::post('club/{id}','ClubController@reaction');
 
 Route::get('club/{id}','ClubController@show');
 
+
 Route::get('user/{id}','UserController@show');
 
 Route::get('store/{id}','StoreController@show');
+
+Route::get('club/{id}/admin','ClubController@admin');
+
+Route::post('club/{id}/admin','ClubController@admin');
+
+Route::post('club/{id}/admind','ClubController@admind');
+
+
+

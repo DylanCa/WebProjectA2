@@ -14,33 +14,6 @@ use App\Http\Controllers\Controller;
 
 class EventController extends Controller
 {
-
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function index()
-    {
-        //
-    }
-
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
-    {
-        //
-    }
-
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
     public function store(Request $request, Event $event)
     {
         $event = new Event;
@@ -50,17 +23,19 @@ class EventController extends Controller
         $event->long_descr = $request->long_descr;
         $event->eventDate = $request->eventDate;
         $event->clubID = $request->clubID;
+
         $event->save();
 
-        return redirect()->to('event');
+        $eventMember = new EventMembers;
+        $eventMember->userID = \Cookie::get('id');
+        $eventMember->eventID = $event->id;
+        $eventMember->isAdmin = 2;
+
+        $eventMember->save();
+
+        return redirect()->to('event/'.$event->id);
     }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
     public function show($id)
     {
         $event = Event::find($id);
@@ -155,37 +130,24 @@ class EventController extends Controller
         return back();
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function edit($id)
-    {
-        //
-    }
+    public function admin(Request $request){
 
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function update(Request $request, $id)
-    {
-        //
-    }
+        $member = EventMembers::where('id', $request->memberID)->first();
 
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy($id)
-    {
-        //
+        if (\Input::get('deleteMessage')){
+            EventMessageBoard::where('id', $request->deleteMessage)->first()->delete();
+            
+        } elseif(\Input::get('kickEvent')){
+            $member->delete();
+            
+        } elseif(\Input::get('setAdmin')){
+            $member->isAdmin = 1;
+            $member->save();
+        } elseif(\Input::get('unsetAdmin')){
+            $member->isAdmin = 0;
+            $member->save();
+        }
+
+        return back();
     }
 }
