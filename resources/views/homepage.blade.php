@@ -34,7 +34,7 @@
                             Oh, and if you don't need a date for a particular page or post you can simply delete
                             the entire "date" element.
                         -->
-                        <span class="date"><span class="month">Jul<span>y</span></span> <span class="day">14</span><span class="year">, {{ $event->eventDate }}</span></span>
+                        <span class="date"><span class="month">{{ $event->eventDate }}</span> <!-- <span class="day">{{ $event->eventDate }}</span> --><!-- <span class="year">, {{ $event->eventDate }}</span> --></span>
                         <!--
                             Note: You can change the number of list items in "stats" to whatever you want.
                         -->
