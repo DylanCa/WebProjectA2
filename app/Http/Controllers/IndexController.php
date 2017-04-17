@@ -39,9 +39,6 @@ class IndexController extends Controller{
 		if(User::where('id', \Cookie::get('id'))->first()->isAdmin == 1){ return view('admin'); } else { return view('event'); }
 	}
 
-	public function displayStore(){
-		return view('store');
-	}
 
 	public function displayStoreBuy(){
 		return view('store_buy');
