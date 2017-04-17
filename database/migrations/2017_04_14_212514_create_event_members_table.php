@@ -16,6 +16,7 @@ class CreateEventMembersTable extends Migration
             $table->increments('id');
             $table->integer('userID');
             $table->integer('eventID');
+            $table->integer('isAdmin');
             $table->timestamps();
         });
     }

@@ -23,7 +23,10 @@
                             if they get too long. You can also remove the <p> entirely if you don't
                             need a subtitle.
                         -->
-                        <h2><a href="/event/{{ $event->id }}">{{ $event->name }}</a></h2>
+                        <h2><a href="/event/{{ $event->id }}">{{ $event->name }}</a><small> ( by <a href="/user/{{ $event->eventCreator }}">{{ App\User::where('id', $event->eventCreator)->first()->name}} {{ App\User::where('id', $event->eventCreator)->first()->surname}}</a> ) 
+                    @if($event->clubID !=0 )
+                        - <a href="\club\{{$event->clubID}}">{{App\Club::where('id', $event->clubID)->first()->name}} </a>
+                    @endif </small></h2>
                         <p>{{ $event->short_descr }}</p>
                     </header>
                     <div class="info">
