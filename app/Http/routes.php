@@ -55,6 +55,10 @@ Route::post('event/new/','IndexController@displayCreate');
 
 Route::post('club/new/','IndexController@displayClubCreate');
 
+Route::post('admin/club/','AdminController@club');
+
+Route::post('admin/event/','AdminController@event');
+
 
 /*
 |-----------|

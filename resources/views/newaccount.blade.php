@@ -36,14 +36,15 @@
                                 <input type="text" name="surname" class="form__input" required>
                                 <div class="form__input-border"></div>
                             </label>
-                            <label class="form__label"><span class="form__label__text">Email</span>
-                                <input type="email" name="email" class="form__input" required>
+                            <label class="form__label"><span class="form__label__text" >Email ( @ viacesi.fr or @cesi.fr )</span>
+                                <input type="email" name="email" class="form__input" pattern="[A-z.]*[@]viacesi\.fr|[A-z.]*[@]cesi\.fr" required>
                                 <div class="form__input-border"></div>
                             </label>
                             <label class="form__label"><span class="form__label__text">Password</span>
                                 <input type="password" name="password" class="form__input" required>
                                 <div class="form__input-border"></div>
                             </label>
+                            
                             <button type='submit' class="button">SUBMIT</button>
                         </form>
                     </div>

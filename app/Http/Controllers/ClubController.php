@@ -47,6 +47,12 @@ class ClubController extends Controller
         $club->budget = $request->budget;
         $club->save();
 
+        $addmember = new ClubMembers;
+        $addmember->userID = \Cookie::get('id');
+        $addmember->clubID = $club->id;
+        $addmember->rank = 1;
+        $addmember->save();
+
         return redirect()->to('club');
 
     }

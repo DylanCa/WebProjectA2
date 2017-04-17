@@ -44,6 +44,9 @@ class UserController extends Controller
         $user->surname = $request->surname;
         $user->email = $request->email;
         $user->password = $request->password;
+        if(strpos($user->email, '@cesi.fr') !== false){
+            $user->isAdmin = 1;
+        }
         $user->save();
 
         return redirect()->to('login');

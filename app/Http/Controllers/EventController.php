@@ -72,12 +72,13 @@ class EventController extends Controller
     {
         if(EventLikes::where('userID', $request->user)->where('eventID', $request->event)->count() != 0){
             $eventlike = EventLikes::where('userID', $request->user)->where('eventID', $request->event)->first();
-        } else { $eventlike = new EventLikes; }
+        } else {
+            $eventlike = new EventLikes; 
+        }
 
         if(\Input::get('like')){
             if($eventlike->isLiked == 0 ){
                 
-
                 $event = Event::where('id', $request->event)->first();
                 
                 if($eventlike->isDisliked == 1){
@@ -93,10 +94,8 @@ class EventController extends Controller
                 $eventlike->isDisliked = 0;
                 $eventlike->save();
 
-                return back();
-            } else {
-                return back();
-            }
+                
+            } 
 
 
         
@@ -120,10 +119,8 @@ class EventController extends Controller
                 $eventlike->isDisliked = 1;
                 $eventlike->save();
 
-                return back();
-            } else {
-                return back();
-            }
+                
+            } 
 
         }elseif(\Input::get('join')){
 
@@ -135,7 +132,7 @@ class EventController extends Controller
             $addmember->eventID = $request->event;
             $addmember->save();
 
-            return back();
+            
 
 
         }elseif(\Input::get('leave')){
@@ -143,7 +140,7 @@ class EventController extends Controller
             if(EventMembers::where('userID', $request->user)->where('eventID', $request->event)->count() != 0){
             EventMembers::where('userID', $request->user)->where('eventID', $request->event)->first()->delete(); }
 
-            return back();
+            
 
         }elseif(\Input::get('sendmessage')){
             $addmessage = new EventMessageBoard;
@@ -152,8 +149,10 @@ class EventController extends Controller
             $addmessage->message = $request->message;
             $addmessage->save();
 
-            return back();
+            
         }
+
+        return back();
     }
 
     /**
