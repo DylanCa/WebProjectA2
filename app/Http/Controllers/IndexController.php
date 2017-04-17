@@ -3,11 +3,12 @@
 namespace App\Http\Controllers;
 
 use DB;
+use App\User;
 
 class IndexController extends Controller{
 
 	public function displayHomepage(){
-		return view('homepage');
+		return view('event');
 	}
 
 	public function displayProfil(){
@@ -39,7 +40,7 @@ class IndexController extends Controller{
 	}
 
 	public function displayAdmin(){
-		return view('admin');
+		if(User::where('id', \Cookie::get('id'))->first()->isAdmin == 1){ return view('admin'); } else { return view('event'); }
 	}
 
 	public function displayStore(){

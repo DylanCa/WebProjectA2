@@ -7,17 +7,26 @@
         <!-- Post -->
         <article class="box post post-excerpt">
             <header>
-                <!--
-                        Note: Titles and subtitles will wrap automatically when necessary, so don't worry
-                        if they get too long. You can also remove the <p> entirely if you don't
-                        need a subtitle.
-                    -->
                 <h2><a href="/club/{{ $club->id }}">{{ $club->name }}</a></h2>
                 <p>{{ $club->short_descr }}</p>
             </header>
             <div class="info">
                 <ul class="stats">
-                    <li><a href="#" class="icon fa-user-plus">{{ App\ClubMembers::where('clubID', $club->id )->count() }}</a></li>
+                    <li><a href="/club/{{$club->id}}#members" class="icon fa-user-plus">{{ App\ClubMembers::where('clubID', $club->id )->count() }}</a></li>
+                </ul>
+            </div>
+            <div id="members" class="container">
+                <ul class="list-group"> List of the Club members
+                <br/>Admin : 
+                @foreach (App\ClubMembers::where('clubID', $club->id )->where('rank', 1)->get() as $member)
+                     <li class="list-group-item"><a href="/user/{{$member->userID}}">{{ App\User::where('id', $member->userID)->first()->name}} {{ App\User::where('id', $member->userID)->first()->surname}}</a>
+                @endforeach
+                </ul>
+                Member : 
+                <ul class="list-group">
+                @foreach (App\ClubMembers::where('clubID', $club->id )->where('rank','!=',1)->get() as $member)
+                     <li class="list-group-item"><a href="/user/{{$member->userID}}">{{ App\User::where('id', $member->userID)->first()->name}} {{ App\User::where('id', $member->userID)->first()->surname}}
+                @endforeach
                 </ul>
             </div>
             <a href="#" class="image featured"><img src="/images/pic01.jpg" alt="" /></a>
@@ -28,9 +37,9 @@
                 <input type="hidden" name="club" value="{{ $club->id }}">
                 <input type="hidden" name="user" value="{{ \Cookie::get('id') }}">
                 @if(App\clubMembers::where('userID', \Cookie::get('id'))->where('clubID', $club->id)->count() == 0)
-                    <input type="submit" name="join" class="btn btn-primary" value="Join the club" />
+                    <button type="submit" name="join" class="btn btn-primary" value="join">Join the club</button>
                  @else  
-                    <input type="submit" name="leave" class="btn btn-primary" value="Leave the club" /> 
+                    <button type="submit" name="leave" class="btn btn-primary" value="leave">Leave the club</button>
                  @endif
             <hr />
 

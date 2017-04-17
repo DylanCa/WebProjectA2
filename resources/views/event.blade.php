@@ -39,10 +39,10 @@
                             Note: You can change the number of list items in "stats" to whatever you want.
                         -->
                         <ul class="stats">
-                            <li><a href="#" class="icon fa-comment">{{App\EventMessageBoard::where('eventID', $event->id)->count()}}</a></li>
+                            <li><a href="/event/{{$event->id}}#messages" class="icon fa-comment">{{App\EventMessageBoard::where('eventID', $event->id)->count()}}</a></li>
                             <li><a href="#" class="icon fa-heart">{{ $event->likes }}</a></li>
                             <li><a href="#" class="icon fa-heartbeat">{{ $event->dislikes }}</a></li>
-                            <li><a href="#" class="icon fa-user-plus">{{ App\EventMembers::where('eventID', $event->id )->count() }}</a></li>
+                            <li><a href="/event/{{$event->id}}#members" class="icon fa-user-plus">{{ App\EventMembers::where('eventID', $event->id )->count() }}</a></li>
                         </ul>
                     </div>
                     <a href="#" class="image featured"><img src="images/pic01.jpg" alt="" /></a>

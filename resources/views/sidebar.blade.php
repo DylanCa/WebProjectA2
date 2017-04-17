@@ -1,4 +1,4 @@
-<!-- Sidebar -->
+
 <div id="sidebar">
     <!-- Logo -->
     <h1 id="logo"><a href="/">BDE EXIA</a></h1>
@@ -8,12 +8,12 @@
             @if(!empty(\Cookie::get('id')))
             <p>
                 <a href='profil'>{{ App\User::where('id', \Cookie::get('id') )->first()->name }} {{ App\User::where('id', \Cookie::get('id') )->first()->surname}}</a>
-                <br/> <a href='logout'>Logout</a>
+                <br/> <a href='/logout'>Logout</a>
             </p>
             @else
             <p>
-                <a href='login'>Login</a><br/>
-                <a href='register'>Create an account</a>
+                <a href='/login'>Login</a><br/>
+                <a href='/register'>Create an account</a>
             </p>
             @endif
         </div>
@@ -25,6 +25,9 @@
             <li><a href="/club">Clubs</a></li>
             <li><a href="/event">Events</a></li>
             <li><a href="/store">Store</a></li>
+            @if(App\User::where('id', \Cookie::get('id'))->first()->isAdmin == 1)
+                <li><a href="/admin">Admin Panel</a></li>
+            @endif
         </ul>
     </nav>
     <!-- Recent Posts -->
@@ -34,8 +37,10 @@
         </header>
         <ul>
         @foreach (App\EventMembers::where('userID', \Cookie::get('id'))->get() as $eventMember)
-            @if(App\ClubMembers::where('userID', \Cookie::get('id'))->where('clubID', (App\Event::where('id', $eventMember->eventID)->first()->clubID))->count() != 0 || App\Event::where('id', $eventMember->eventID)->first()->clubID == 0)
-                <li><a href="/event/{{$eventMember->eventID}}">{{App\Event::where('id', $eventMember->eventID)->first()->eventDate}} - {{ App\Event::where('id', $eventMember->eventID)->first()->name }}</a></li>
+            @if(App\event::where('id', $eventMember->eventID)->first()->isAvailable == 1)
+                @if(App\ClubMembers::where('userID', \Cookie::get('id'))->where('clubID', (App\Event::where('id', $eventMember->eventID)->first()->clubID))->count() != 0 || App\Event::where('id', $eventMember->eventID)->first()->clubID == 0)
+                    <li><a href="/event/{{$eventMember->eventID}}">{{App\Event::where('id', $eventMember->eventID)->first()->eventDate}} - {{ App\Event::where('id', $eventMember->eventID)->first()->name }}</a></li>
+                @endif
             @endif
         @endforeach
         </ul>
@@ -47,7 +52,9 @@
         </header>
         <ul>
         @foreach (App\ClubMembers::where('userID', \Cookie::get('id'))->get() as $club)
-            <li><a href="/club/{{$club->clubID}}">{{ App\Club::where('id', $club->clubID)->first()->name }}</a></li>
+            @if(App\Club::where('id', $club->clubID)->first()->isAvailable == 1)
+                <li><a href="/club/{{$club->clubID}}">{{ App\Club::where('id', $club->clubID)->first()->name }}</a></li>
+            @endif
         @endforeach
         </ul>
     </section>
@@ -58,7 +65,9 @@
         </header>
         <ul>
         @foreach (App\EventMessageBoard::all()->take(5) as $message)
-            <li><a href="/user/{{$message->userID}}">{{App\User::where('id',$message->userID)->first()->name}} {{App\User::where('id',$message->userID)->first()->surname}} </a> on <a href="/event/{{$message->eventID}}">{{App\Event::where('id', $message->eventID)->first()->name}}</a><br /><a href="/event/{{$message->eventID}}#comments">{{str_limit($message->message, 50)}}</a></li>
+            @if(App\Event::where('id', $message->eventID)->first()->isAvailable == 1 && !empty(App\EventMembers::where('userID', \Cookie::get('id'))->where('eventID', $message->eventID)->first()))
+                <li><a href="/user/{{$message->userID}}">{{App\User::where('id',$message->userID)->first()->name}} {{App\User::where('id',$message->userID)->first()->surname}} </a> on <a href="/event/{{$message->eventID}}">{{App\Event::where('id', $message->eventID)->first()->name}}</a><br /><a href="/event/{{$message->eventID}}#comments">{{str_limit($message->message, 50)}}</a></li>
+            @endif
         @endforeach
         </ul>
     </section>
