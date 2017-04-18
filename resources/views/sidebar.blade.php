@@ -25,7 +25,7 @@
             <li><a href="/club">Clubs</a></li>
             <li><a href="/event">Events</a></li>
             <li><a href="/store">Store</a></li>
-            @if(App\User::where('id', \Cookie::get('id'))->first()->isAdmin == 1)
+            @if(!empty(\Cookie::get('id')) && App\User::where('id', \Cookie::get('id'))->first()->isAdmin == 1)
                 <li><a href="/admin">Admin Panel</a></li>
             @endif
         </ul>

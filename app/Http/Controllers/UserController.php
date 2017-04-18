@@ -79,13 +79,24 @@ class UserController extends Controller
      */
     public function show($id)
     {
-        return view('userprofile', compact('id'));
+        if(!empty(\Cookie::get('id'))){
+            return view('userprofile', compact('id'));
+        }else{
+            return \Redirect::to('/');
+        }
+
+        
     }
 
     public function showUser()
     {
-        $id = \Cookie::get('id');
-        return view('userprofile', compact('id'));
+        if(!empty(\Cookie::get('id'))){
+            $id = \Cookie::get('id');
+            return view('userprofile', compact('id'));
+        }else{
+            return \Redirect::to('/');
+        }
+        
     }
 
     /**

@@ -71,9 +71,14 @@ class ClubController extends Controller
      */
     public function show($id)
     {
-        $club = Club::find($id);
+        if(!empty(\Cookie::get('id'))){
+            $club = Club::find($id);
 
         return view('singleclub', compact('club'));
+        }else{
+            return \Redirect::to('/');
+        }
+        
     }
 
     public function admin($id)

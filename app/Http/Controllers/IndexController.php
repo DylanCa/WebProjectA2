@@ -25,14 +25,26 @@ class IndexController extends Controller{
 	}
 
 	public function displayClub(){
-		return view('club');
+		if(!empty(\Cookie::get('id'))){
+			return view('club');
+		}else{
+			return \Redirect::to('/');
+		}
 	}
 	public function displayClubCreate(){
-		return view('clubcreate');
+		if(!empty(\Cookie::get('id'))){
+			return view('clubcreate');
+		}else{
+			return \Redirect::to('/');
+		}
 	}
 
 	public function displayEvent(){
-		return view('event');
+		if(!empty(\Cookie::get('id'))){
+			return view('event');
+		}else{
+			return \Redirect::to('/');
+		}
 	}
 
 	public function displayAdmin(){
@@ -45,12 +57,19 @@ class IndexController extends Controller{
 	}
 
 	public function displayDBTries(){
-		return view('dbtries');
+		if(!empty(\Cookie::get('id'))){
+			return view('dbtries');
+		}else{
+			return \Redirect::to('/');
+		}
 	}
 	
 	public function displayCreate(){
-        
+		if(!empty(\Cookie::get('id'))){
         return view('eventcreate');
+    }else{
+    	return \Redirect::to('/');
+    }
     }
 
 }

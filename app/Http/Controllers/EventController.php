@@ -38,9 +38,14 @@ class EventController extends Controller
 
     public function show($id)
     {
-        $event = Event::find($id);
+        if(!empty(\Cookie::get('id'))){
+            $event = Event::find($id);
 
-        return view('singleevent', compact('event'));
+            return view('singleevent', compact('event'));
+        }else{
+            return \Redirect::to('/');
+        }
+        
     }
 
     public function reaction(Request $request, Event $event)
