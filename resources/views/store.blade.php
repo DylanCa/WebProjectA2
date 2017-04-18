@@ -37,11 +37,37 @@
 								<h1>Welcome to the shop !</h1>
 								<p>Etiam quis viverra lorem, in semper lorem. Sed nisl arcu euismod sit amet nisi euismod sed cursus arcu elementum ipsum arcu vivamus quis venenatis orci lorem ipsum et magna feugiat veroeros aliquam. Lorem ipsum dolor sit amet nullam dolore.</p>
 
+<!-- 
 								 @foreach ($store as $item)
-									<div>{{$item->name}}</div>
+								 
+									<div >{{$item->name}} </div>
+									<h6><a href="/store/{{ $item->id }}">{{ $item->name }}</a></h6>
 									
-								 @endforeach
+								 @endforeach -->
 							</header>
+							<section class="tiles">
+								@foreach ($store as $item)
+								 
+								
+									
+								 
+							
+								<article class="style1">
+									<span class="image">
+										<img src="images/pic01_.jpg" alt="" />
+									</span>
+									<a href="/store/{{ $item->id }}">
+										<h2>{{$item->name}}</h2>
+										<div class="content">
+											<p>{{$item->description}}</p>
+										</div>
+									</a>
+								</article>
+								@endforeach
+							</section>
+							
+
+							<!-- 
 							<section class="tiles">
 								<article class="style1">
 									<span class="image">
@@ -175,7 +201,7 @@
 										</div>
 									</a>
 								</article>
-							</section>
+							</section> -->
 						</div>
 					</div>
 
