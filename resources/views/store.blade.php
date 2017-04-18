@@ -48,13 +48,16 @@
 							<section class="tiles">
 								@foreach ($store as $item)
 								 
-								
+								<?php
+
+								$img = rand(1, 6);
+								?>
 									
 								 
 							
-								<article class="style1">
+								<article class="style{{$img}}">
 									<span class="image">
-										<img src="images/pic01_.jpg" alt="" />
+										<img src="images/{{$img}}.jpg" alt="" />
 									</span>
 									<a href="/store/{{ $item->id }}">
 										<h2>{{$item->name}}</h2>
@@ -201,7 +204,7 @@
 										</div>
 									</a>
 								</article>
-							</section> -->
+							</section>  -->
 						</div>
 					</div>
 
