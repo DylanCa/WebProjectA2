@@ -12,7 +12,11 @@ class IndexController extends Controller{
 	}
 
 	public function displayLogin(){
-		return view('login');
+		if(!empty(\Cookie::get('id'))){
+			return \Redirect::to('/');
+		}else{
+			return view('login');
+		}
 	}
 
 	public function logout(){
@@ -21,7 +25,13 @@ class IndexController extends Controller{
 	}
 
 	public function displayCreateAcc(){
-		return view('newaccount');
+		if(!empty(\Cookie::get('id'))){
+			return \Redirect::to('/');
+		}else{
+			return view('newaccount');
+		}
+
+		
 	}
 
 	public function displayClub(){

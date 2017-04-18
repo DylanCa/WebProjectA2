@@ -1,7 +1,7 @@
 @extends('layout') 
 
 @section('title')
-    <title>Event</title>
+    <title>Homepage</title>
     <link rel="stylesheet" href="/assets/css/main.css" /> 
 @stop 
 
@@ -11,7 +11,9 @@
     <div class="inner">
     <form method='post' action='event/new/'>
     <input type="hidden" name="_token" value="{{ csrf_token() }}">
+        @if(!empty(\Cookie::get('id')))
         <button type="submit" class="btn btn-primary">Create an event</button>
+        @endif
     </form>
         @foreach( App\Event::where('isAvailable', 1)->orderBy('created_at', 'DESC')->get() as $event)
             @if (App\ClubMembers::where('clubID', $event->clubID)->where('userID', \Cookie::get('id'))->count() != 0 || $event->clubID == 0)
@@ -23,10 +25,7 @@
                             if they get too long. You can also remove the <p> entirely if you don't
                             need a subtitle.
                         -->
-                        <h2><a href="/event/{{ $event->id }}">{{ $event->name }}</a><small> ( by <a href="/user/{{ $event->eventCreator }}">{{ App\User::where('id', $event->eventCreator)->first()->name}} {{ App\User::where('id', $event->eventCreator)->first()->surname}}</a> ) 
-                    @if($event->clubID !=0 )
-                        - <a href="\club\{{$event->clubID}}">{{App\Club::where('id', $event->clubID)->first()->name}} </a>
-                    @endif </small></h2>
+                        <h2><a href="/event/{{ $event->id }}">{{ $event->name }}</a></h2>
                         <p>{{ $event->short_descr }}</p>
                     </header>
                     <div class="info">
