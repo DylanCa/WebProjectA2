@@ -17,6 +17,8 @@ class CreateStoreTable extends Migration
             $table->string('name');
             $table->integer('price');
             $table->text('description');
+            $table->integer('stock');
+            $table->integer('pictureID');
             $table->timestamps();
         });
     }
