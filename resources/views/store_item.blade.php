@@ -20,23 +20,12 @@
 	<!-- Wrapper -->
 			<div id="wrapper">
 
-				<!-- Header --><!-- 
-					<header id="header">
-						<div class="inner">
-
-								<a href="index.html" class="logo">
-									<span class="symbol"><img src="images/logo.svg" alt="" /></span><span class="title">Phantom</span>
-								</a>
-					    </div>
-					</header> -->
-
 				<!-- Main -->
 					<div id="main">
 						<div class="inner2">
 							<header>
-								<h1>This your item :{{$item->name}}  </h1>
-								<p>ID: {{$item->id}}</p>
-								<p>Nom: {{$item->name}}</p>
+								<h1>{{$item->name}}</h1>
+								<span class="image main"><img src="/images/store{{$item->id}}.jpg" alt="" /></span>
 								<p>Prix: {{$item->price}}€</p>
 								<p>Description: {{$item->description}}</p>
 
@@ -44,61 +33,48 @@
 							
 						</div>
 					</div>
+			</div>
 
-    <!-- Sidebar -->
-    <div id="sidebar">
-        <!-- Logo -->
-        <h1 id="logo"><a href="/">BDE EXIA</a></h1>
-        <!-- Text -->
-        <section class="box text-style1">
-            <div class="inner">
-                <p>
-                    <a href='profil'>{{ App\User::where('id', \Cookie::get('id') )->first()->name }} {{ App\User::where('id', \Cookie::get('id') )->first()->surname}}</a>
-                    <br/> <a href='logout'>Logout</a>
-                </p>
-            </div>
-        </section>
-        <!-- Nav -->
-        <nav id="nav">
-            <ul>
-                <li class="current"><a href="/">Homepage</a></li>
-                <li><a href="/club">Clubs</a></li>
-                <li><a href="/event">Event 1</a></li>
-                <li><a href="/event">Event 2</a></li>
-                <li><a href="/store">Store</a></li>
-            </ul>
-        </nav>
-        <!-- Recent Posts -->
-        <section class="box recent-posts">
-            <header>
-                <h2>Recent Events</h2>
-            </header>
-            <ul>
-                <li><a href="/event/1">Event 1</a></li>
-                <li><a href="/event/2">Event 2</a></li>
-                <li><a href="/event/3">Event 3</a></li>
-                <li><a href="/event/4">Event 4</a></li>
-                <li><a href="/event/5">Event 5</a></li>
-            </ul>
-        </section>
-        <!-- Recent Comments -->
-        <section class="box recent-comments">
-            <header>
-                <h2>Recent Comments</h2>
-            </header>
-            <ul>
-                <li>case on <a href="#">Lorem ipsum dolor</a></li>
-                <li>molly on <a href="#">Sed dolore magna</a></li>
-                <li>case on <a href="#">Sed dolore magna</a></li>
-            </ul>
-        </section>
-        <!-- Copyright -->
-        <ul id="copyright">
-            <li>&copy; Cattelan & Montes.</li>
-            <li>Design: <a href="http://html5up.net">HTML5 UP</a></li>
-        </ul>
-    </div>
 
-</div>
+		<!-- Wrapper -->
+			<div id="wrapper">
+
+
+				<!-- Main -->
+					<div id="main">
+						<div class="inner2">
+							<h1>Generic Page</h1>
+							<span class="image main"><img src="/images/pic13.jpg" alt="" /></span>
+							<p>Some text</p>
+						</div>
+					</div>
+
+
+			</div>
+
+<!-- RIQUE BOUTON-POUSSOIR
+€4,90
+La Brique la plus simple pour comprendre comment fonctionnent les fameuses « briques déclencheuses » ! En associant plusieurs d'entre eux, créer un système logique devient aussi simple qu'efficace : un bouton déclenche une action, l'autre l’arrête. Seul, il peut allumer et éteindre une LED sans la moindre difficulté.
+
+Quelques idées de créations possibles grâce à la brique Bouton :
+
+· Le jeu du buzzer
+· Un jeu de réflexe
+· Des dizaines de jeux vidéos
+· Un piano
+MADE IN FRANCE - Fabriqué à Toulouse, avec passion
+
+Garantie 1 an - Expédié en 24h - Conseil et assistance illimités
+ -->
+		<!-- Scripts -->
+			<script src="assets/js/jquery.min.js"></script>
+			<script src="assets/js/skel.min.js"></script>
+			<script src="assets/js/util.js"></script>
+			<!--[if lte IE 8]><script src="assets/js/ie/respond.min.js"></script><![endif]-->
+			<script src="assets/js/main.js"></script>
+
+@include('sidebar');
+
+
 </body>
 </html>
