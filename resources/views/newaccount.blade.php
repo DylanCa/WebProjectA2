@@ -22,7 +22,7 @@
         </div>
         <div class="auth-center">
             <div class="auth__inner auth-size">
-                <div class="auth__sidebar auth__inner__section"></div>
+                
                 <div class="auth__form auth__inner__section">
                     <div class="form">
                         <form method="post" action="/register">
@@ -47,6 +47,11 @@
                             
                             <button type='submit' class="button">SUBMIT</button>
                         </form>
+
+                        <a href="/login" class="form__input">Already a member ?</a>
+
+                       <!--  <button class="button" onclick="redirectLogin();" >Login</button> -->
+
                     </div>
                 </div>
             </div>
@@ -54,20 +59,10 @@
     </div>
     </div>
     </section>
+
+
+<script type="text/javascript" src="assets/js/login.js"></script>
+
 </body>
 
 </html>
-<!-- 
-<div class="container">
-    <div class="form-group">
-        <form method="post" action="/register">
-            <input type="hidden" name="_token" value="{{ csrf_token() }}">
-            <input type="text" name="name" class="form-control" required>
-            <input type="text" name="surname" class="form-control" required>
-            <input type="email" name="email" class="form-control" required>
-            <input type="password" name="password" class="form-control" required>
-            <button type='submit' class="btn btn-primary">SUBMIT</button>
-        </form>
-    </div>
-</div>
- -->

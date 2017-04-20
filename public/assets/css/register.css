@@ -25,6 +25,7 @@ html {
 *:before {
   box-sizing: inherit;
 }
+
 /*
 .auth__form {
 	max-width: 409.5px;
@@ -67,9 +68,9 @@ html {
 }
 
 .auth-size {
-  max-height: 440px;
-  max-width: 780px;
-  height: 440px;
+  max-height: 700px; /*440*/
+  max-width: 409.5px;
+  height: 620px; /*440*/
   width: 100%;
 }
 
@@ -81,7 +82,7 @@ html {
 }
 
 .auth__inner__section {
-  padding: 0.05rem 2rem;
+  padding: 1.25rem 2rem;
 }
 
 .auth__sidebar {
@@ -109,7 +110,7 @@ html {
 }
 
 .form__label {
-  padding-bottom: 0.5rem;
+  padding-bottom: 1.25rem;
   display: block;
 }
 
@@ -147,10 +148,9 @@ html {
   color: #fff;
   display: block;
   line-height: 60px;
-  margin-top: 0.5px;
+  margin-top: 70px;
   outline: 0;
   width: 100%;
-  max-height: 100px;
 }
 
 .form__meta {
