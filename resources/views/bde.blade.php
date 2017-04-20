@@ -1,5 +1,7 @@
 @extends('layout')
-
+@section('title')
+	<title>BDE Page</title>
+@stop
 @section('body')
 
 <div id="content">
