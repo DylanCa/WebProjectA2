@@ -50,9 +50,9 @@
 								 
 								<?php $img = rand(1, 6); ?>
 									
-								<article class="style{{$img}}">
+								<article class="style1">
 									<span class="image">
-										<img src="images/{{$img}}.jpg" alt="" />
+										<img src="images/store_indexComp{{$item->pictureID}}.jpg" alt="" />
 									</span>
 									<a href="/store/{{ $item->id }}">
 										<h6>{{$item->name}}</h6>
