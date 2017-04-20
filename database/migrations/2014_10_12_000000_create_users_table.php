@@ -22,6 +22,7 @@ class CreateUsersTable extends Migration
             $table->string('catchPhrase', 100);
             $table->string('schoolLocation');
             $table->integer('isAdmin');
+            $table->integer('isBDE');
             $table->rememberToken();
             $table->timestamps();
         });

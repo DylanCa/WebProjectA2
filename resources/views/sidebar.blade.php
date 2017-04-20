@@ -18,18 +18,18 @@
             @endif
         </div>
     </section>
-    <!-- Nav -->
-    <nav id="nav">
-        <ul>
-            <li class="current"><a href="/">Homepage</a></li>
-            <li><a href="/club">Clubs</a></li>
-            <li><a href="/event">Events</a></li>
-            <li><a href="/store">Store</a></li>
-            @if(!empty(\Cookie::get('id')) && App\User::where('id', \Cookie::get('id'))->first()->isAdmin == 1)
-                <li><a href="/admin">Admin Panel</a></li>
-            @endif
-        </ul>
-    </nav>
+    <br />
+     <!-- Nav -->
+    <ul id="nav">
+        <li><a href="/">Homepage</a></li>
+        <li><a href="/club">Clubs</a></li>
+        <li><a href="/event">Events</a></li>
+        <li><a href="/bde">BDE</a></li>
+        <li><a href="/store">Store</a></li>
+        @if(!empty(\Cookie::get('id')) && App\User::where('id', \Cookie::get('id'))->first()->isAdmin == 1)
+            <li><a href="/admin">Admin Panel</a></li>
+        @endif
+    </ul>
     <!-- Recent Posts -->
     <section class="box recent-posts">
         <header >
@@ -77,3 +77,6 @@
         <li>Design: <a href="http://html5up.net">HTML5 UP</a></li>
     </ul>
 </div>
+
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+<script src="/assets/js/script.js"></script>

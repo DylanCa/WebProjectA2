@@ -25,6 +25,7 @@ html {
 *:before {
   box-sizing: inherit;
 }
+
 /*
 .auth__form {
 	max-width: 409.5px;
@@ -67,9 +68,9 @@ html {
 }
 
 .auth-size {
-  max-height: 440px;
-  max-width: 780px;
-  height: 440px;
+  max-height: 700px; /*440*/
+  max-width: 409.5px;
+  height: 420px; /*440*/
   width: 100%;
 }
 
@@ -147,7 +148,7 @@ html {
   color: #fff;
   display: block;
   line-height: 60px;
-  margin-top: 70px;
+  margin-top: 40px; /* 70*/
   outline: 0;
   width: 100%;
 }

@@ -37,6 +37,8 @@ Route::get('user','IndexController@displayProfil');
 
 Route::get('dbtries', 'IndexController@displayDBTries');
 
+Route::get('bde', 'IndexController@displayBDE');
+
 /*
 |-----------|
 | POST part |
@@ -60,6 +62,8 @@ Route::post('club/new/','IndexController@displayClubCreate');
 Route::post('admin/club/','AdminController@club');
 
 Route::post('admin/event/','AdminController@event');
+
+Route::post('bde/signup', 'UserController@bde');
 
 
 /*
