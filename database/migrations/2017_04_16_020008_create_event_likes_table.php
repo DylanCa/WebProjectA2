@@ -14,8 +14,8 @@ class CreateEventLikesTable extends Migration
     {
         Schema::create('event_likes', function (Blueprint $table) {
             $table->increments('id');
-            $table->integer('userID');
-            $table->integer('eventID');
+            $table->integer('userID')->references('id')->on('users');
+            $table->integer('eventID')->references('id')->on('events');
             $table->integer('isLiked');
             $table->integer('isDisliked');
             $table->timestamps();

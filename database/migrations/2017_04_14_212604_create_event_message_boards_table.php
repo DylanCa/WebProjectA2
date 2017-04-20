@@ -14,8 +14,8 @@ class CreateEventMessageBoardsTable extends Migration
     {
         Schema::create('event_message_boards', function (Blueprint $table) {
             $table->increments('id');
-            $table->integer('userID');
-            $table->integer('eventID');
+            $table->integer('userID')->references('id')->on('users');
+            $table->integer('eventID')->references('id')->on('events');
             $table->string('message');
             $table->timestamps();
         });

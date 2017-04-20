@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use App\User;
 use App\Club;
 use App\Event;
+use App\Item;
 use App\AdminVotes;
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
@@ -137,6 +138,13 @@ class AdminController extends Controller
         return back();
     }
 
+    public function addstock(Request $request)
+    {
+        $goodie = Item::where('id', $request->_stockID)->first();
+        $goodie->stock = $goodie->stock + $request->value;
+        $goodie->save();
+        return back();
+    }
 
     /**
      * Display a listing of the resource.

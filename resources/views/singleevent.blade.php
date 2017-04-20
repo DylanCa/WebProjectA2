@@ -39,12 +39,13 @@
                     <input type="hidden" name="event" value="{{ $event->id }}">
                     <input type="hidden" name="user" value="{{ \Cookie::get('id') }}">
                     <button type="submit" name="like" class="btn btn-primary" value="like">Good Idea !</button>
-                    <button type="submit" name="dislike" class="btn btn-primary" value="dislike">Meh .. Not that good.</button> 
+                    <button type="submit" name="dislike" class="btn btn-warning" value="dislike">Meh .. Not that good.</button> 
                     @if(App\EventMembers::where('userID', \Cookie::get('id'))->where('eventID', $event->id)->count() == 0)
-                        <button type="submit" name="join" class="btn btn-primary" value="join">Join the event</button>
+                        <button type="submit" name="join" class="btn btn-success" value="join">Join the event</button>
                     @else
-                        <button type="submit" name="leave" class="btn btn-primary" value="leave">Leave the event</button>
+                        <button type="submit" name="leave" class="btn btn-danger" value="leave">Leave the event</button>
                     @endif
+                    
                 </form>
             </div>
             <hr />

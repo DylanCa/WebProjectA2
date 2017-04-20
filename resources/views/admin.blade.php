@@ -61,7 +61,15 @@
 	    	<h3>Store stocks</h3>
 	    	<ul class="list-group">
 		    	@foreach (App\Item::get() as $goodie)
-		    		<li class="list-group-item"><a href="\store\{{$goodie->id}}">{{ $goodie->name }}</a> - ${{$goodie->price}} - <button class="btn btn-success" value="2">{{$goodie->stock}}</button></li>
+		    		<li class="list-group-item"><a href="\store\{{$goodie->id}}">{{ $goodie->name }}</a> - ${{$goodie->price}} - Current stock : <button class="btn btn-success" value="2">{{$goodie->stock}}</button>
+		    		<br /><br />
+		    		<form method="post" class="form-inline" action="/admin/stock">
+		    			<input type="hidden" name="_token" value="{{ csrf_token() }}">
+		    			<input type="hidden" name="_stockID" value="{{ $goodie->id }}">
+						<input type="number" name="value" class="form-control" >
+		    			<button type="submit" class="btn btn-primary" >Add stock</button>
+		    		</form>
+		    			</li>
 		    	@endforeach
 			</ul>
 	    </div>

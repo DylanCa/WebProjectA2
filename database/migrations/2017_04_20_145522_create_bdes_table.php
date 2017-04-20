@@ -14,7 +14,7 @@ class CreateBdesTable extends Migration
     {
         Schema::create('bdes', function (Blueprint $table) {
             $table->increments('id');
-            $table->integer('userID');
+            $table->integer('userID')->references('id')->on('users');
             $table->integer('upvote');
             $table->integer('downvote');
             $table->rememberToken();
@@ -32,3 +32,5 @@ class CreateBdesTable extends Migration
         Schema::drop('bdes');
     }
 }
+
+

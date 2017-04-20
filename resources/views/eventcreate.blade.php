@@ -31,7 +31,7 @@
                 <div class="col-sm-9">
                     <div class="form-group">
                         When do you want it to happen ?
-                        <input type="date" min="{{ date('Y-m-d') }}" class="form-control" name="eventDate">
+                        <input required type="date" min="{{ date('Y-m-d') }}" class="form-control" name="eventDate">
                     </div>
                 </div>
                 <div class="col-sm-10">

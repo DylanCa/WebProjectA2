@@ -63,6 +63,8 @@ Route::post('admin/club/','AdminController@club');
 
 Route::post('admin/event/','AdminController@event');
 
+Route::post('admin/stock/','AdminController@addstock');
+
 Route::post('bde/signup', 'UserController@bde');
 
 

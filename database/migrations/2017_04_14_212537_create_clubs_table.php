@@ -15,7 +15,7 @@ class CreateClubsTable extends Migration
         Schema::create('clubs', function (Blueprint $table) {
             $table->increments('id');
             $table->string('name');
-            $table->integer('clubCreator');
+            $table->integer('clubCreator')->references('id')->on('users');
             $table->text('short_descr');
             $table->text('long_descr');
             $table->string('clubimage')->default("http://dev.meilleures-licences.com/logo_ecole/logoexiainge-1449052490.jpg");

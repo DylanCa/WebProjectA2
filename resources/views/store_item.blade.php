@@ -28,7 +28,9 @@
 								<img src="/images/store{{$item->pictureID}}.jpg" alt="" />
 								<p>{{$item->price}}€</p>
 								<p>{{$item->description}}</p>
+								<br />
 
+								<a href="mailto:admin@cesi.fr?Subject=I want to buy {{$item->name}}"><button type="button" class="btn">Commander un {{$item->name}}</button></a>
 							</header>
 							
 						</div>

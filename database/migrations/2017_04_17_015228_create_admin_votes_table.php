@@ -14,9 +14,9 @@ class CreateAdminVotesTable extends Migration
     {
         Schema::create('admin_votes', function (Blueprint $table) {
             $table->increments('id');
-            $table->integer('userID');
-            $table->integer('eventID');
-            $table->integer('clubID');
+            $table->integer('userID')->references('id')->on('users');
+            $table->integer('eventID')->references('id')->on('events');
+            $table->integer('clubID')->references('id')->on('clubs');
             $table->integer('isLiked');
             $table->integer('isDisliked');
             $table->integer('setAvailable');

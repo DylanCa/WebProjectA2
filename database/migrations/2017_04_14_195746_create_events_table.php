@@ -15,12 +15,12 @@ class CreateEventsTable extends Migration
         Schema::create('events', function (Blueprint $table) {
             $table->increments('id');
             $table->string('name');
-            $table->integer('eventCreator');
+            $table->integer('eventCreator')->references('id')->on('users');
             $table->text('short_descr');
             $table->text('long_descr');
             $table->date('eventDate');
             $table->string('eventimage')->default('http://dev.meilleures-licences.com/logo_ecole/logoexiainge-1449052490.jpg');
-            $table->integer('clubID');
+            $table->integer('clubID')->references('id')->on('clubs');
             $table->integer('upvote_admin');
             $table->integer('downvote_admin');
             $table->integer('isAvailable');

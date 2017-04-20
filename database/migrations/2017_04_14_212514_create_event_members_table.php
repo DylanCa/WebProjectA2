@@ -14,8 +14,8 @@ class CreateEventMembersTable extends Migration
     {
         Schema::create('event_members', function (Blueprint $table) {
             $table->increments('id');
-            $table->integer('userID');
-            $table->integer('eventID');
+            $table->integer('userID')->references('id')->on('users');
+            $table->integer('eventID')->references('id')->on('events');
             $table->integer('isAdmin');
             $table->timestamps();
         });

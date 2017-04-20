@@ -14,8 +14,8 @@ class CreateClubMembersTable extends Migration
     {
         Schema::create('club_members', function (Blueprint $table) {
             $table->increments('id');
-            $table->integer('userID');
-            $table->integer('clubID');
+            $table->integer('userID')->references('id')->on('users');
+            $table->integer('clubID')->references('id')->on('clubs');
             $table->integer('rank');
             $table->string('role');
             $table->timestamps();

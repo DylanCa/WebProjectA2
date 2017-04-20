@@ -21,7 +21,9 @@ class EventController extends Controller
         $event->eventCreator = \Cookie::get('id');
         $event->short_descr = $request->short_descr;
         $event->long_descr = $request->long_descr;
-        $event->eventimage = $request->eventimage;
+        if(!empty($request->eventimage)){
+            $event->eventimage = $request->eventimage;
+        }
         $event->eventDate = $request->eventDate;
         $event->clubID = $request->clubID;
 

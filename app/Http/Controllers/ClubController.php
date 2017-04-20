@@ -48,7 +48,9 @@ class ClubController extends Controller
         $club->clubCreator = \Cookie::get('id');
         $club->short_descr = $request->short_descr;
         $club->long_descr = $request->long_descr;
-        $club->clubimage = $request->clubimage;
+        if(!empty($request->clubimage)){
+            $club->clubimage = $request->clubimage;
+        }
         $club->budget = $request->budget;
         $club->save();
 
@@ -124,7 +126,6 @@ class ClubController extends Controller
             EventMessageBoard::where('id', $request->messageID)->first()->delete();
             
         } elseif(\Input::get('kickClub')){
-
             $clubMembers->delete();
             
         } elseif(\Input::get('setAdmin')){
