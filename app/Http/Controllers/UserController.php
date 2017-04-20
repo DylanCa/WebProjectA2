@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 
 use App\User;
+use App\Bde;
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
 
@@ -97,6 +98,43 @@ class UserController extends Controller
             return \Redirect::to('/');
         }
         
+    }
+
+    public function bde(Request $request)
+    {
+            if(\Input::get('signbde')){
+                if(!empty(Bde::where('userID', \Cookie::get('id'))->first())){
+    
+                    Bde::where('userID', \Cookie::get('id'))->first()->delete();
+    
+    
+                } else {
+                    
+                    $BDEmember = new Bde;
+                    $BDEmember->userID = \Cookie::get('id');
+                    $BDEmember->save();
+                }
+            } elseif(\Input::get('upvote')){
+
+                $BDEmember = Bde::where('id', $request->_id)->first();
+                $BDEmember->upvote = $BDEmember->upvote+1;
+                $BDEmember->downvote = $BDEmember->downvote-1;
+                $BDEmember->save();
+            } elseif(\Input::get('downvote')){
+                $BDEmember = Bde::where('id', $request->_id)->first();
+                $BDEmember->downvote = $BDEmember->downvote+1;
+                $BDEmember->upvote = $BDEmember->upvote-1;
+                $BDEmember->save();
+            } elseif(\Input::get('setmember')){
+                $user = User::where('id', Bde::where('id', $request->_id)->first()->userID)->first();
+                $user->isBDE = 1;
+                $user->save();
+            } elseif(\Input::get('unsetmember')){
+                $user = User::where('id',$request->_id)->first();
+                $user->isBDE = 0;
+                $user->save();
+            }
+        return back();
     }
 
     /**
