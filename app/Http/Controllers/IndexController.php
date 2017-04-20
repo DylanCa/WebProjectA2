@@ -57,8 +57,20 @@ class IndexController extends Controller{
 		}
 	}
 
+	public function displayBDE(){
+		if(!empty(\Cookie::get('id'))){
+		 return view('bde'); 
+		} else { 
+			return view('event'); 
+		}
+	}
+
 	public function displayAdmin(){
-		if(User::where('id', \Cookie::get('id'))->first()->isAdmin == 1){ return view('admin'); } else { return view('event'); }
+		if(User::where('id', \Cookie::get('id'))->first()->isAdmin == 1){
+		 return view('admin'); 
+		} else {
+		 return view('event'); 
+		}
 	}
 
 
@@ -66,13 +78,6 @@ class IndexController extends Controller{
 		return view('store_buy');
 	}
 
-	public function displayDBTries(){
-		if(!empty(\Cookie::get('id'))){
-			return view('dbtries');
-		}else{
-			return \Redirect::to('/');
-		}
-	}
 	
 	public function displayCreate(){
 		if(!empty(\Cookie::get('id'))){
