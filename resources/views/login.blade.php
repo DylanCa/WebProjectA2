@@ -39,9 +39,10 @@
                             <button type='submit' class="button">Login</button>
 
                         </form>
-                        
+                            <a href="/register" class="form__input">Not a member yet ?</a>
+                          <!--   
                         <button class="button" onclick="redirectRegister();" >Register</button>
-                        
+                 -->
                     </div>
                 </div>
             </div>

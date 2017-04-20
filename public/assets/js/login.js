@@ -4,6 +4,6 @@ function redirectRegister(){
 
 
 function redirectLogin(){
-	location.href='/Login';
+	location.href='/login';
 
 }
