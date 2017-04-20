@@ -61,7 +61,7 @@
                     @endforeach
                 </ul>
             </div>
-            <a href="#" class="image featured"><img src="/images/pic01.jpg" alt="" /></a>
+            <a href="/club/{{$club->id}}" class="image featured"><img style="max-width:500px; height:auto" src="{{ $club->clubimage }}" alt="" /></a>
             <p>{{ $club->long_descr }}</p>
             <br/>
             <form action="/club/{{$club->id}}" method="post">

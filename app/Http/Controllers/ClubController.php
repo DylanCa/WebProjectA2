@@ -48,6 +48,7 @@ class ClubController extends Controller
         $club->clubCreator = \Cookie::get('id');
         $club->short_descr = $request->short_descr;
         $club->long_descr = $request->long_descr;
+        $club->clubimage = $request->clubimage;
         $club->budget = $request->budget;
         $club->save();
 

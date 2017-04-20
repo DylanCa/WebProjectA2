@@ -31,7 +31,7 @@
                     <li><a href="/club/{{$club->id}}#members" class="icon fa-user-plus">{{ App\ClubMembers::where('clubID', $club->id )->count() }}</a></li>
                 </ul>
             </div>
-            <a href="#" class="image featured"><img src="images/pic01.jpg" alt="" /></a>
+            <a href="/club/{{$club->id}}" class="image featured"><img style="max-width:500px; height:auto" src="{{ $club->clubimage }}" alt="" /></a>
             <p>{{ $club->long_descr }}
             </p>
         </article>

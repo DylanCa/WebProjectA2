@@ -22,6 +22,12 @@
                         <textarea name="long_descr" class="form-control" placeholder="Long Description of the club" required></textarea>
                     </div>
                 </div>
+                <div class="col-sm-7">
+                    <div class="form-group">
+                        <label for="clubimage">Club image URL<br/>( format .jpg / jpeg / .png / .gif )</label>
+                        <input type="text" class="form-control" name="clubimage" pattern=".*\.jpg$|.*\.jpeg$|.*\.png$|.*\.gif$" placeholder="https://image.jpeg">
+                    </div>
+                </div>
                 <div class="col-sm-9">
                     <div class="form-group">
                         Budget

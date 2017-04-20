@@ -19,7 +19,8 @@
                 </div>
                 <div class="col-sm-7">
                     <div class="form-group">
-                        <input type="file" name="eventImage" />
+                        <label for="eventimage">Event image URL<br/>( format .jpg / jpeg / .png / .gif )</label>
+                        <input type="text" class="form-control" name="eventimage" pattern=".*\.jpg$|.*\.jpeg$|.*\.png$|.*\.gif$" placeholder="https://image.jpeg">
                     </div>
                 </div>
                 <div class="col-sm-8">

@@ -3,7 +3,7 @@
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateBdeTable extends Migration
+class CreateBdesTable extends Migration
 {
     /**
      * Run the migrations.
@@ -12,7 +12,7 @@ class CreateBdeTable extends Migration
      */
     public function up()
     {
-        Schema::create('bde', function (Blueprint $table) {
+        Schema::create('bdes', function (Blueprint $table) {
             $table->increments('id');
             $table->integer('userID');
             $table->integer('upvote');
@@ -29,6 +29,6 @@ class CreateBdeTable extends Migration
      */
     public function down()
     {
-        Schema::drop('bde');
+        Schema::drop('bdes');
     }
 }

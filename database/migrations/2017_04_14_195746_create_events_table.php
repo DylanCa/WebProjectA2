@@ -19,6 +19,7 @@ class CreateEventsTable extends Migration
             $table->text('short_descr');
             $table->text('long_descr');
             $table->date('eventDate');
+            $table->string('eventimage')->default('http://dev.meilleures-licences.com/logo_ecole/logoexiainge-1449052490.jpg');
             $table->integer('clubID');
             $table->integer('upvote_admin');
             $table->integer('downvote_admin');

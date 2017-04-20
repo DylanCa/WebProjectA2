@@ -18,6 +18,7 @@ class CreateClubsTable extends Migration
             $table->integer('clubCreator');
             $table->text('short_descr');
             $table->text('long_descr');
+            $table->string('clubimage')->default("http://dev.meilleures-licences.com/logo_ecole/logoexiainge-1449052490.jpg");
             $table->decimal('budget',2);
             $table->decimal('totalAmount',2);
             $table->integer('upvote_admin');

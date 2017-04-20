@@ -57,6 +57,13 @@
 	    		</form>
 	    		@endforeach
 	    	</ul>
+	    	<hr />
+	    	<h3>Store stocks</h3>
+	    	<ul class="list-group">
+		    	@foreach (App\Item::get() as $goodie)
+		    		<li class="list-group-item"><a href="\store\{{$goodie->id}}">{{ $goodie->name }}</a> - ${{$goodie->price}} - <button class="btn btn-success" value="2">{{$goodie->stock}}</button></li>
+		    	@endforeach
+			</ul>
 	    </div>
 	</div>
 

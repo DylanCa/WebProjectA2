@@ -30,7 +30,7 @@
                     <li><a href="/event/{{$event->id}}#members" class="icon fa-user-plus">{{ App\EventMembers::where('eventID', $event->id )->count() }}</a></li>
                 </ul>
             </div>
-            <a href="#" class="image featured"><img src="/images/pic01.jpg" alt="" /></a>
+            <a href="/event/{{$event->id}}" class="image featured"><img style="max-width:500px; height:auto" src="{{ $event->eventimage }}" alt="" /></a>
             <p>{{ $event->long_descr }}</p>
             <br/>
             <div class="inner">

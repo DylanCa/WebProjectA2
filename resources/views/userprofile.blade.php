@@ -11,8 +11,9 @@
 				<form method="POST" action="\profile">
 				<input type="hidden" name="_token" value="{{ csrf_token() }}">
 				  	<div class="form-group col-lg-10 text-center"><div></div>
-				    	<label for="avatar">Change your avatar<br/>( format .jpg / jpeg / .png / .gif )</label>
-				    	<input type="text" class="form-control" name="avatar" pattern=".*\.jpg$|.*\.jpeg$|.*\.png$|.*\.gif$" placeholder="https://image.jpeg">
+				    	<label for="avatar">Change your avatar<br/>( format .jpg / jpeg / .png / .gif )
+				    		<input type="text" class="form-control" name="avatar" pattern=".*\.jpg$|.*\.jpeg$|.*\.png$|.*\.gif$" placeholder="https://image.jpeg">
+				    	</label>
 				    	<button type="submit" name="changeavatar" value="changeavatar" class="btn btn-primary" >Change it !</button>
 				  	</div>
 				</form>
