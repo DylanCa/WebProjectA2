@@ -22,7 +22,7 @@
         </div>
         <div class="auth-center">
             <div class="auth__inner auth-size">
-                <div class="auth__sidebar auth__inner__section"></div>
+                
                 <div class="auth__form auth__inner__section">
                     <div class="form">
                         <form method="post" action="/register">
